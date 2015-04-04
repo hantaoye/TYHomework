@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="qIe-gW-izm">
+            <objects>
+                <viewController id="iKC-6f-Gjz" customClass="TYWelcomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5OO-o8-aoA"/>
+                        <viewControllerLayoutGuide type="bottom" id="pHX-Ho-0Nd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pS1-lE-7SA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7az-GE-EOj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="J0O-pN-4L3">
+                                <rect key="frame" x="249.5" y="543" width="100" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="DjE-7O-C7p"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.58823529409999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="7az-GE-EOj" secondAttribute="centerX" id="2iS-7d-En5"/>
+                            <constraint firstAttribute="centerX" secondItem="J0O-pN-4L3" secondAttribute="centerX" id="L3J-KW-qMM"/>
+                            <constraint firstItem="7az-GE-EOj" firstAttribute="top" secondItem="pS1-lE-7SA" secondAttribute="top" id="QRh-Md-UuF"/>
+                            <constraint firstItem="7az-GE-EOj" firstAttribute="leading" secondItem="pS1-lE-7SA" secondAttribute="leading" id="dQY-tt-Bx3"/>
+                            <constraint firstItem="pHX-Ho-0Nd" firstAttribute="top" secondItem="J0O-pN-4L3" secondAttribute="bottom" constant="20" id="j3H-Sm-aao"/>
+                            <constraint firstItem="pHX-Ho-0Nd" firstAttribute="top" secondItem="7az-GE-EOj" secondAttribute="bottom" id="loQ-iq-aJN"/>
+                            <constraint firstAttribute="trailing" secondItem="7az-GE-EOj" secondAttribute="trailing" id="s5P-B0-OIy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="J0O-pN-4L3" id="bxP-Ix-4Nu"/>
+                        <outlet property="scrollView" destination="7az-GE-EOj" id="cTJ-qZ-K1X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajK-9y-ERJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-113" y="485"/>
+        </scene>
+    </scenes>
+</document>
