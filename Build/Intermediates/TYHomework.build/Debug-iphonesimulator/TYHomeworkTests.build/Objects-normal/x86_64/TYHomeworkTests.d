@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/renyuxian/Desktop/TY/homeWork/untitled\ folder/TYHomework/TYHomeworkTests/TYHomeworkTests.m \
+  /Users/renyuxian/Desktop/aaaa/TYHomework/TYHomeworkTests/TYHomeworkTests.m \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestSuiteRun.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestSuite.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestProbe.h \

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/renyuxian/Desktop/TY/homeWork/untitled\ folder/TYHomework/Pods/SDWebImage/SDWebImage/UIImage+GIF.m \
-  /Users/renyuxian/Desktop/TY/homeWork/untitled\ folder/TYHomework/Pods/SDWebImage/SDWebImage/UIImage+GIF.h
+  /Users/renyuxian/Desktop/aaaa/TYHomework/Pods/SDWebImage/SDWebImage/UIImage+GIF.m \
+  /Users/renyuxian/Desktop/aaaa/TYHomework/Pods/SDWebImage/SDWebImage/UIImage+GIF.h

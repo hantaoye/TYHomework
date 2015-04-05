@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <VCTransitionsLibrary/CEBaseInteractionController.h>
+#import <VCTransitionsLibrary/CEReversibleAnimationController.h>
+#import "TYAnimationController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.navigationControllerAnimationController = [TYAnimationController new];
+
     return YES;
 }
 

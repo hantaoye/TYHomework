@@ -1,55 +1,54 @@
 //
-//  RyxDatabaseConnector.m
-//  FITogether
+//  RSDatabaseConnector.m
+//  StoreKit
 //
-//  Created by closure on 1/21/15.
+//  Created by closure on 3/21/15.
 //  Copyright (c) 2015 closure. All rights reserved.
 //
 
 #import "TYDatabaseConnector.h"
 #import <FMDB/FMDB.h>
-#import "TYDebugLog.h"
+#import "TYRowMapper.h"
+//#import "RSStoreKit.h"
+//#import "RSStorage.h"
 
 @interface FMDatabaseQueue (X)
 - (FMDatabase *)database;
 @end
 
-@interface RyxDatabaseConnector () {
-    @private
+@interface TYDatabaseConnector () {
+@private
     FMDatabaseQueue *_queue;
 }
 @end
 
-//@interface TYDatabaseConnectorTableNameRowMapper : RyxObject<RyxRowMapper>
-//- (NSString *)rowMapperWithResultSet:(FMResultSet *)resultSet;
-//@end
-//
-//@implementation RyxDatabaseConnectorTableNameRowMapper
-//
-//- (NSString *)rowMapperWithResultSet:(FMResultSet *)resultSet {
-//    return [resultSet stringForColumnIndex:0];
-//}
-//
-//@end
+@interface RyxDatabaseConnectorTableNameRowMapper : TYObject<TYRowMapper>
+- (NSString *)rowMapperWithResultSet:(FMResultSet *)resultSet;
+@end
+
+@implementation RyxDatabaseConnectorTableNameRowMapper
+
+- (NSString *)rowMapperWithResultSet:(FMResultSet *)resultSet {
+    return [resultSet stringForColumnIndex:0];
+}
+
+@end
 
 @implementation TYDatabaseConnector
 
 + (NSString *)pathForName:(NSString *)name {
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-     [path stringByAppendingPathComponent:TYDataBaseComponent];
-    
-    //[[RyxAccountStorage accountRootPath:[[RyxAccount currentAccount] ID]] stringByAppendingPathComponent:name];
+    return name;
 }
 
-- (instancetype)init {
-    if (self = [self initWithPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSAllDomainsMask, YES) firstObject] name:@"RYX-Inc.db"]) {
-        
-    }
-    return self;
-}
+//- (instancetype)init {
+//    if (self = [self initWithPath:[[[RSStoreKit kit] storageNamed:@"connector"] path] name:@"StoreKit.dat"]) {
+//        
+//    }
+//    return self;
+//}
 
 - (instancetype)initWithName:(NSString *)name {
-    if (self = [self initWithPath:[RyxAccountStorage accountRootPath:[[RyxAccount currentAccount] ID]] name:name]) {
+    if (self = [self initWithPath:name name:name]) {
         
     }
     return self;
@@ -59,15 +58,19 @@
     if (self = [super init]) {
         NSError *error = nil;
         if (![[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error]) {
-            [RyxDebugLogger error:error];
+            NSLog(@"%@", [error localizedDescription]);
         }
         NSString *fullPath = [path stringByAppendingPathComponent:name];
         _queue = [[FMDatabaseQueue alloc] initWithPath:fullPath];
-        [[_queue database] setTraceExecution:[[[NSBundle mainBundle] infoDictionary][@"RyxDAODebugEnable"] boolValue]];
-        [RyxDebugLogger debug:path];
+        [[_queue database] setTraceExecution:[[[NSBundle mainBundle] infoDictionary][@"RSStoreKitConnectorEnableDebug"] boolValue]];
+        NSLog(@"%@", path);
     }
     return self;
 }
+
+//- (instancetype)initWithStorage:(TYStorage *)storage name:(NSString *)name {
+//    return [self initWithPath:[storage path] name:name];
+//}
 
 - (void)dealloc {
     [_queue close];
@@ -83,18 +86,27 @@
 - (void)updateWithAction:(void (^)(BOOL success))action SQL:(NSString *)sql, ... {
     va_list ap;
     va_start(ap, sql);
+    [self _updateWithAction:action SQL:sql va_list:ap];
+    va_end(ap);
+}
+
+- (void)_updateWithAction:(void (^)(BOOL))action SQL:(NSString *)sql va_list:(va_list)ap {
     [_queue inDatabase:^(FMDatabase *db) {
         BOOL x = [db executeUpdate:sql withVAList:ap];
         if (action) {
             action(x);
         }
     }];
+}
+
+- (void)queryObjectWithActon:(void(^)(id obj))action rowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ... {
+    va_list ap;
+    va_start(ap, sql);
+    [self _queryObjectWithActon:action rowMapper:rowMapper SQL:sql va_list:ap];
     va_end(ap);
 }
 
-- (void)queryObjectWithActon:(void(^)(id obj))action rowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ... {
-    va_list ap;
-    va_start(ap, sql);
+- (void)_queryObjectWithActon:(void(^)(id obj))action rowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql va_list:(va_list)ap {
     [_queue inDatabase:^(FMDatabase *db) {
         FMResultSet *set = [db executeQuery:sql withVAList:ap];
         if (action) {
@@ -110,12 +122,17 @@
             [set setParentDB:nil];
         }
     }];
+}
+
+
+- (void)queryObjectsWithActon:(void(^)(NSArray *objs))action rowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ... {
+    va_list ap;
+    va_start(ap, sql);
+    [self _queryObjectWithActon:action rowMapper:rowMapper SQL:sql va_list:ap];
     va_end(ap);
 }
 
-- (void)queryObjectsWithActon:(void(^)(NSArray *objs))action rowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ... {
-    va_list ap;
-    va_start(ap, sql);
+- (void)_queryObjectsWithActon:(void(^)(NSArray *objs))action rowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql va_list:(va_list)ap {
     [_queue inDatabase:^(FMDatabase *db) {
         FMResultSet *set = [db executeQuery:sql withVAList:ap];
         if (action) {
@@ -131,24 +148,35 @@
             [set setParentDB:nil];
         }
     }];
-    va_end(ap);
 }
 
 - (BOOL)updateWithSQL:(NSString *)sql, ... {
+    BOOL x = NO;
     va_list ap;
     va_start(ap, sql);
+    x = [self _updateWithSQL:sql va_list:ap];
+    va_end(ap);
+    return x;
+}
+
+- (BOOL)_updateWithSQL:(NSString *)sql va_list:(va_list)ap {
     __block BOOL x = NO;
     [_queue inDatabase:^(FMDatabase *db) {
         x = [db executeUpdate:sql withVAList:ap];
     }];
-    va_end(ap);
-
     return x;
 }
 
-- (id)queryObjectWithRowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ... {
+- (id)queryObjectWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ... {
     va_list ap;
     va_start(ap, sql);
+    id obj = nil;
+    obj = [self _queryObjectWithRowMapper:rowMapper SQL:sql va_list:ap];
+    va_end(ap);
+    return obj;
+}
+
+- (id)_queryObjectWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql va_list:(va_list)ap {
     __block id obj = nil;
     [_queue inDatabase:^(FMDatabase *db) {
         FMResultSet *set = [db executeQuery:sql withVAList:ap];
@@ -158,13 +186,20 @@
         [set close];
         [set setParentDB:nil];
     }];
-    va_end(ap);
     return obj;
 }
 
-- (NSMutableArray *)queryObjectsWithRowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ... {
+
+- (NSMutableArray *)queryObjectsWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ... {
     va_list ap;
     va_start(ap, sql);
+    NSMutableArray *objs = nil;
+    objs = [self _queryObjectsWithRowMapper:rowMapper SQL:sql va_list:ap];
+    va_end(ap);
+    return objs;
+}
+
+- (NSMutableArray *)_queryObjectsWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql va_list:(va_list)ap {
     __block NSMutableArray *objs = nil;
     [_queue inDatabase:^(FMDatabase *db) {
         FMResultSet *set = [db executeQuery:sql withVAList:ap];
@@ -175,11 +210,10 @@
         [set close];
         [set setParentDB:nil];
     }];
-    va_end(ap);
     return objs;
 }
 
-- (NSMutableArray *)queryObjectsWithRowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql ids:(NSArray *)keys {
+- (NSMutableArray *)queryObjectsWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql ids:(NSArray *)keys {
     __block NSMutableArray *objs = nil;
     [_queue inDatabase:^(FMDatabase *db) {
         FMResultSet *set = [db executeQuery:sql withArgumentsInArray:keys];
@@ -206,7 +240,11 @@
 
 - (NSMutableArray *)allTableNames {
     static NSString *SQL = @"SELECT tbl_name FROM sqlite_master where type = \"table\";";
-    return [self queryObjectsWithRowMapper:[RyxDatabaseConnectorTableNameRowMapper new] SQL:SQL];
+    return [self queryObjectsWithRowMapper:[RyxDatabaseConnectorTableNameRowMapper new] SQL:SQL, nil];
+}
+
+- (BOOL)tableIsExist:(NSString *)tableName {
+    return [[[self dbQueue] database] tableExists:tableName];
 }
 
 - (FMDatabaseQueue *)dbQueue {

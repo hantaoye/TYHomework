@@ -19,7 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SCRecorder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UIImage-ResizeMagick.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1469DC270E2D3593F43DB0FF</key>
+		<key>1958CCF35D2DA314F6C42942</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5219C99239B995A7095C42A7</key>
+		<key>502944AEF85D9AEAE73FDE70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>790850854DF4FEF71AFC46CE</key>
+		<key>52CE1FDE4893D997437B3178</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95A1503A701D54B641B80702</key>
+		<key>80AF618F641B353998B28B05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADB2A8B3500A44C29B645FA4</key>
+		<key>89E958623319211F3A5F7FAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA461B4395E491975866D71C</key>
+		<key>C9630CC336AA013D0A31C41C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9085E6EEE167543182F54FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8172F3344C1DC9914BEA6A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

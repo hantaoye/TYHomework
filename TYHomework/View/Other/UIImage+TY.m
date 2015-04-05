@@ -47,7 +47,7 @@
             compression -= 0.1;
             photoData = UIImageJPEGRepresentation(_image, compression);
         }
-        [RyxDebugLogger debugFormat:@"image compress process (%ld [final]): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
+        [TYDebugLog debugFormat:@"image compress process (%ld [final]): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
     }
     return photoData;
 }

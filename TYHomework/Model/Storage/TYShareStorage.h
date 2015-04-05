@@ -12,4 +12,6 @@
 
 - (void)synchronize;
 
++ (instancetype)shareStorage;
+
 @end

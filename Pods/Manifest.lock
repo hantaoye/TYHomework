@@ -6,23 +6,29 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - MJExtension (0.2.0)
+  - SCRecorder (2.3.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
+  - UIImage-ResizeMagick (0.0.1)
   - VCTransitionsLibrary (1.5.0)
 
 DEPENDENCIES:
   - CTAssetsPickerController (~> 2.8.0)
   - FMDB
   - MJExtension
+  - SCRecorder
   - SDWebImage
+  - UIImage-ResizeMagick
   - VCTransitionsLibrary
 
 SPEC CHECKSUMS:
-  CTAssetsPickerController: b725e95ec8c75a74ecb58edb02b35d606d333bcc
-  FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
-  MJExtension: 4d179914dbec2b6ca826f8296181fc1d4013781e
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  VCTransitionsLibrary: 3c33ef649f7380bdb5bff5212f01c8f3f9eb5492
+  CTAssetsPickerController: 4700427ec701586f5394f52f4d6fe22779ac842d
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  MJExtension: 62af61e1a53da0a244c3ae3aff415159bcbd0f0b
+  SCRecorder: 8ed33007a1dca0392d1d33b4cf76aceb09724de4
+  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  UIImage-ResizeMagick: f08c2d14d1e8a5f0b402185408785540562f2fe7
+  VCTransitionsLibrary: d61fd9b7b6721942f0d583bcc0e7f8c31ec9271b
 
 COCOAPODS: 0.35.0

@@ -9,6 +9,7 @@
 #import "NSString+TY.h"
 #import <Availability.h>
 
+
 @implementation NSString (TY)
 
 - (CGSize)sizeWithFontSize:(int)fontSize maxWidth:(CGFloat)maxWidth

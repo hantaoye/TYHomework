@@ -7,10 +7,11 @@
 //
 
 #import "TYObject.h"
+#import "TYRowMapper.h"
 
 @class FMDatabaseQueue;
 
-@interface RyxDatabaseConnector : TYObject
+@interface TYDatabaseConnector : TYObject
 + (NSString *)pathForName:(NSString *)name;
 - (instancetype)init;
 - (instancetype)initWithName:(NSString *)name;
@@ -19,12 +20,12 @@
 - (void)executeStatements:(NSString *)sql;
 
 - (void)updateWithAction:(void (^)(BOOL success))action SQL:(NSString *)sql,...;
-- (void)queryObjectWithActon:(void(^)(id obj))action rowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ...;
-- (void)queryObjectsWithActon:(void(^)(NSArray *objs))action rowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ...;
+- (void)queryObjectWithActon:(void(^)(id obj))action rowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ...;
+- (void)queryObjectsWithActon:(void(^)(NSArray *objs))action rowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ...;
 - (BOOL)updateWithSQL:(NSString *)sql,...;
-- (id)queryObjectWithRowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ...;
-- (NSMutableArray *)queryObjectsWithRowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql, ...;
-- (NSMutableArray *)queryObjectsWithRowMapper:(id<RyxRowMapper>)rowMapper SQL:(NSString *)sql ids:(NSArray *)keys;
+- (id)queryObjectWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ...;
+- (NSMutableArray *)queryObjectsWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ...;
+- (NSMutableArray *)queryObjectsWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql ids:(NSArray *)keys;
 
 - (long long)countOfTable:(NSString *)tableName;
 - (BOOL)dropTable:(NSString *)table;
