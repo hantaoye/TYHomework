@@ -71,6 +71,7 @@
 		672F59BC1AD19537002BC84C /* TYAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAnimationController.m; sourceTree = "<group>"; };
 		672F59BE1AD1966C002BC84C /* TYViewControllerAnimationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYViewControllerAnimationDelegate.h; sourceTree = "<group>"; };
 		672F59BF1AD1966C002BC84C /* TYViewControllerAnimationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYViewControllerAnimationDelegate.m; sourceTree = "<group>"; };
+		672F59C11AD19A2C002BC84C /* TYCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCommon.h; sourceTree = "<group>"; };
 		67376C7B1AB7C86300EB7215 /* TYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextView.h; sourceTree = "<group>"; };
 		67376C7C1AB7C86300EB7215 /* TYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTextView.m; sourceTree = "<group>"; };
 		67376C7E1AB7C94400EB7215 /* NSString+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TY.h"; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		67FD723B1AD0DB30007EAE30 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = TYHomework/ViewController.m; sourceTree = SOURCE_ROOT; };
 		67FD723F1AD0E20E007EAE30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		67FD72411AD0E20E007EAE30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		67FD72441AD0E23F007EAE30 /* TYCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCommon.h; sourceTree = "<group>"; };
 		BC757E76103B4A05570EB6BB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E3DDD85A6DE1F8802EC93DC9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,7 +221,7 @@
 		6755DEB61AA40267000120B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67FD72441AD0E23F007EAE30 /* TYCommon.h */,
+				672F59C11AD19A2C002BC84C /* TYCommon.h */,
 				6755DEB71AA40267000120B9 /* Info.plist */,
 				6755DEB81AA40267000120B9 /* main.m */,
 				6755DF351AA44A85000120B9 /* TYHomework.pch */,
@@ -771,7 +771,7 @@
 			baseConfigurationReference = E3DDD85A6DE1F8802EC93DC9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/renyuxian/Desktop/TY/homeWork/untitled folder/TYHomework/TYHomework/TYHomework.pch";
+				GCC_PREFIX_HEADER = /Users/renyuxian/Desktop/aaaa/TYHomework/TYHomework/TYHomework.pch;
 				INFOPLIST_FILE = TYHomework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -783,7 +783,7 @@
 			baseConfigurationReference = BC757E76103B4A05570EB6BB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/renyuxian/Desktop/TY/homeWork/untitled folder/TYHomework/TYHomework/TYHomework.pch";
+				GCC_PREFIX_HEADER = /Users/renyuxian/Desktop/aaaa/TYHomework/TYHomework/TYHomework.pch;
 				INFOPLIST_FILE = TYHomework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

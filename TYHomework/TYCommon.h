@@ -14,6 +14,7 @@
 #define TYScreenHeight   [UIScreen mainScreen].bounds.size.height
 #define TYScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define iOS7  ([[UIDevice currentDevice].systemVersion integerValue] >= 7.0)
+#define AppDelegateAccessor ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
 
 #endif
