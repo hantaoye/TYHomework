@@ -15,6 +15,14 @@
 		672F59C01AD1966C002BC84C /* TYViewControllerAnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 672F59BF1AD1966C002BC84C /* TYViewControllerAnimationDelegate.m */; };
 		67376C7D1AB7C86300EB7215 /* TYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67376C7C1AB7C86300EB7215 /* TYTextView.m */; };
 		67376C801AB7C94400EB7215 /* NSString+TY.m in Sources */ = {isa = PBXBuildFile; fileRef = 67376C7F1AB7C94400EB7215 /* NSString+TY.m */; };
+		674364F31AD2D06300CA6EF0 /* RSRegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 674364F21AD2D06300CA6EF0 /* RSRegisterViewController.storyboard */; };
+		674365021AD2D10600CA6EF0 /* RSEmailRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674364F51AD2D10600CA6EF0 /* RSEmailRegisterViewController.m */; };
+		674365031AD2D10600CA6EF0 /* TYFillPersonalMessageViewControllr.m in Sources */ = {isa = PBXBuildFile; fileRef = 674364F71AD2D10600CA6EF0 /* TYFillPersonalMessageViewControllr.m */; };
+		674365041AD2D10600CA6EF0 /* TYFillProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674364F91AD2D10600CA6EF0 /* TYFillProfileViewController.m */; };
+		674365061AD2D10600CA6EF0 /* RSTextFieldKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674364FD1AD2D10600CA6EF0 /* RSTextFieldKeyboardViewController.m */; };
+		674365071AD2D10600CA6EF0 /* TYRegisterHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674364FF1AD2D10600CA6EF0 /* TYRegisterHomeViewController.m */; };
+		674365081AD2D10600CA6EF0 /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674365011AD2D10600CA6EF0 /* VPImageCropperViewController.m */; };
+		6743650E1AD2DCA900CA6EF0 /* TYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6743650D1AD2DCA900CA6EF0 /* TYRegisterViewController.m */; };
 		6755DEB91AA40267000120B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DEB81AA40267000120B9 /* main.m */; };
 		6755DEC41AA40267000120B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6755DEC31AA40267000120B9 /* Images.xcassets */; };
 		6755DED31AA40267000120B9 /* TYHomeworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DED21AA40267000120B9 /* TYHomeworkTests.m */; };
@@ -27,16 +35,32 @@
 		6755DF341AA44226000120B9 /* TYWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF331AA44226000120B9 /* TYWelcomeViewController.m */; };
 		6755DF391AA455DE000120B9 /* TYViewControllerLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF381AA455DE000120B9 /* TYViewControllerLoader.m */; };
 		6755DF401AA459B1000120B9 /* TYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF3F1AA459B1000120B9 /* TYHomeViewController.m */; };
-		6755DF441AA45A0F000120B9 /* TYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF431AA45A0F000120B9 /* TYRegisterViewController.m */; };
 		6755DF481AA45A56000120B9 /* TYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF471AA45A56000120B9 /* TYLoginViewController.m */; };
-		6755DF4A1AA45D0D000120B9 /* TYRegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6755DF491AA45D0D000120B9 /* TYRegisterViewController.storyboard */; };
-		6755DF5A1AA463D2000120B9 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF561AA463D2000120B9 /* MBProgressHUD+MJ.m */; };
-		6755DF5B1AA463D2000120B9 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6755DF571AA463D2000120B9 /* MBProgressHUD.bundle */; };
-		6755DF5C1AA463D2000120B9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF591AA463D2000120B9 /* MBProgressHUD.m */; };
 		6755DF601AA466E9000120B9 /* TYDatabaseConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755DF5F1AA466E9000120B9 /* TYDatabaseConnector.m */; };
+		6764CB951AD2DF2E000A090B /* RSProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6764CB921AD2DF2E000A090B /* RSProgressHUD.bundle */; };
+		6764CB961AD2DF2E000A090B /* RSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CB941AD2DF2E000A090B /* RSProgressHUD.m */; };
+		6764CB9A1AD2E13F000A090B /* TYAccountAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CB991AD2E13F000A090B /* TYAccountAccess.m */; };
+		6764CB9E1AD2E24D000A090B /* TYPasswordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CB9D1AD2E24D000A090B /* TYPasswordEncoder.m */; };
+		6764CBA21AD2E584000A090B /* TYNameVerify.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBA11AD2E584000A090B /* TYNameVerify.m */; };
+		6764CBA71AD2E8A9000A090B /* RSOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBA61AD2E8A9000A090B /* RSOptions.m */; };
+		6764CBAA1AD2EA1D000A090B /* TYEmailVerify.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBA91AD2EA1D000A090B /* TYEmailVerify.m */; };
+		6764CBAF1AD2ECAE000A090B /* RSSettingSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBAD1AD2ECAE000A090B /* RSSettingSelectView.m */; };
+		6764CBB01AD2ECAE000A090B /* RSSettingSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6764CBAE1AD2ECAE000A090B /* RSSettingSelectView.xib */; };
+		6764CBC71AD2ED60000A090B /* RSCommonLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBB31AD2ED60000A090B /* RSCommonLabel.m */; };
+		6764CBC81AD2ED60000A090B /* RSMultiImageEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBB51AD2ED60000A090B /* RSMultiImageEditView.m */; };
+		6764CBC91AD2ED60000A090B /* RSRoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBB71AD2ED60000A090B /* RSRoundImageView.m */; };
+		6764CBCA1AD2ED60000A090B /* RSRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBB81AD2ED60000A090B /* RSRoundView.swift */; };
+		6764CBCB1AD2ED60000A090B /* RSSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBBA1AD2ED60000A090B /* RSSeparateView.m */; };
+		6764CBCC1AD2ED60000A090B /* RSShareActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBBD1AD2ED60000A090B /* RSShareActionView.m */; };
+		6764CBCD1AD2ED60000A090B /* RSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBBE1AD2ED60000A090B /* RSView.swift */; };
+		6764CBCE1AD2ED60000A090B /* TYCustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBC01AD2ED60000A090B /* TYCustomBtn.m */; };
+		6764CBCF1AD2ED60000A090B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBC21AD2ED60000A090B /* UIImage+Resize.m */; };
+		6764CBD01AD2ED60000A090B /* UIImage+TY.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBC41AD2ED60000A090B /* UIImage+TY.m */; };
+		6764CBD11AD2ED60000A090B /* UIView+Ellipse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBC61AD2ED60000A090B /* UIView+Ellipse.m */; };
+		6764CBD41AD2F098000A090B /* TYThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBD31AD2F098000A090B /* TYThread.m */; };
+		6764CBD71AD2F2AD000A090B /* TYPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6764CBD61AD2F2AD000A090B /* TYPlaceholderTextView.m */; };
 		67695A4A1AB73DF400FC595B /* TYDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67695A491AB73DF400FC595B /* TYDrawViewController.m */; };
 		67695A4E1AB73E4700FC595B /* TyDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67695A4D1AB73E4700FC595B /* TyDrawView.m */; };
-		67695A521AB73FC800FC595B /* UIImage+TY.m in Sources */ = {isa = PBXBuildFile; fileRef = 67695A511AB73FC800FC595B /* UIImage+TY.m */; };
 		678B3E241AA7F8E00021ED6D /* TYSharePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 678B3E231AA7F8E00021ED6D /* TYSharePath.m */; };
 		67FD72371AD0D998007EAE30 /* TYRowMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FD72361AD0D998007EAE30 /* TYRowMapper.m */; };
 		67FD723C1AD0DB30007EAE30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FD72391AD0DB30007EAE30 /* AppDelegate.m */; };
@@ -76,6 +100,21 @@
 		67376C7C1AB7C86300EB7215 /* TYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTextView.m; sourceTree = "<group>"; };
 		67376C7E1AB7C94400EB7215 /* NSString+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TY.h"; sourceTree = "<group>"; };
 		67376C7F1AB7C94400EB7215 /* NSString+TY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TY.m"; sourceTree = "<group>"; };
+		674364F21AD2D06300CA6EF0 /* RSRegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RSRegisterViewController.storyboard; sourceTree = "<group>"; };
+		674364F41AD2D10600CA6EF0 /* RSEmailRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEmailRegisterViewController.h; sourceTree = "<group>"; };
+		674364F51AD2D10600CA6EF0 /* RSEmailRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEmailRegisterViewController.m; sourceTree = "<group>"; };
+		674364F61AD2D10600CA6EF0 /* TYFillPersonalMessageViewControllr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYFillPersonalMessageViewControllr.h; sourceTree = "<group>"; };
+		674364F71AD2D10600CA6EF0 /* TYFillPersonalMessageViewControllr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYFillPersonalMessageViewControllr.m; sourceTree = "<group>"; };
+		674364F81AD2D10600CA6EF0 /* TYFillProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYFillProfileViewController.h; sourceTree = "<group>"; };
+		674364F91AD2D10600CA6EF0 /* TYFillProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYFillProfileViewController.m; sourceTree = "<group>"; };
+		674364FC1AD2D10600CA6EF0 /* RSTextFieldKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTextFieldKeyboardViewController.h; sourceTree = "<group>"; };
+		674364FD1AD2D10600CA6EF0 /* RSTextFieldKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTextFieldKeyboardViewController.m; sourceTree = "<group>"; };
+		674364FE1AD2D10600CA6EF0 /* TYRegisterHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYRegisterHomeViewController.h; sourceTree = "<group>"; };
+		674364FF1AD2D10600CA6EF0 /* TYRegisterHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYRegisterHomeViewController.m; sourceTree = "<group>"; };
+		674365001AD2D10600CA6EF0 /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		674365011AD2D10600CA6EF0 /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
+		6743650C1AD2DCA900CA6EF0 /* TYRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYRegisterViewController.h; sourceTree = "<group>"; };
+		6743650D1AD2DCA900CA6EF0 /* TYRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYRegisterViewController.m; sourceTree = "<group>"; };
 		6755DEB31AA40267000120B9 /* TYHomework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYHomework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6755DEB71AA40267000120B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6755DEB81AA40267000120B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,24 +140,55 @@
 		6755DF381AA455DE000120B9 /* TYViewControllerLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYViewControllerLoader.m; sourceTree = "<group>"; };
 		6755DF3E1AA459B1000120B9 /* TYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYHomeViewController.h; sourceTree = "<group>"; };
 		6755DF3F1AA459B1000120B9 /* TYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYHomeViewController.m; sourceTree = "<group>"; };
-		6755DF421AA45A0F000120B9 /* TYRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYRegisterViewController.h; sourceTree = "<group>"; };
-		6755DF431AA45A0F000120B9 /* TYRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYRegisterViewController.m; sourceTree = "<group>"; };
 		6755DF461AA45A56000120B9 /* TYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYLoginViewController.h; sourceTree = "<group>"; };
 		6755DF471AA45A56000120B9 /* TYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYLoginViewController.m; sourceTree = "<group>"; };
-		6755DF491AA45D0D000120B9 /* TYRegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TYRegisterViewController.storyboard; sourceTree = "<group>"; };
-		6755DF551AA463D2000120B9 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
-		6755DF561AA463D2000120B9 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
-		6755DF571AA463D2000120B9 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		6755DF581AA463D2000120B9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		6755DF591AA463D2000120B9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6755DF5E1AA466E9000120B9 /* TYDatabaseConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDatabaseConnector.h; sourceTree = "<group>"; };
 		6755DF5F1AA466E9000120B9 /* TYDatabaseConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDatabaseConnector.m; sourceTree = "<group>"; };
+		6764CB921AD2DF2E000A090B /* RSProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RSProgressHUD.bundle; sourceTree = "<group>"; };
+		6764CB931AD2DF2E000A090B /* RSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProgressHUD.h; sourceTree = "<group>"; };
+		6764CB941AD2DF2E000A090B /* RSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSProgressHUD.m; sourceTree = "<group>"; };
+		6764CB981AD2E13F000A090B /* TYAccountAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAccountAccess.h; sourceTree = "<group>"; };
+		6764CB991AD2E13F000A090B /* TYAccountAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAccountAccess.m; sourceTree = "<group>"; };
+		6764CB9C1AD2E24D000A090B /* TYPasswordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPasswordEncoder.h; sourceTree = "<group>"; };
+		6764CB9D1AD2E24D000A090B /* TYPasswordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPasswordEncoder.m; sourceTree = "<group>"; };
+		6764CBA01AD2E584000A090B /* TYNameVerify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYNameVerify.h; sourceTree = "<group>"; };
+		6764CBA11AD2E584000A090B /* TYNameVerify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYNameVerify.m; sourceTree = "<group>"; };
+		6764CBA41AD2E8A9000A090B /* RSOptionDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSOptionDefines.h; sourceTree = "<group>"; };
+		6764CBA51AD2E8A9000A090B /* RSOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSOptions.h; sourceTree = "<group>"; };
+		6764CBA61AD2E8A9000A090B /* RSOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSOptions.m; sourceTree = "<group>"; };
+		6764CBA81AD2EA1D000A090B /* TYEmailVerify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYEmailVerify.h; sourceTree = "<group>"; };
+		6764CBA91AD2EA1D000A090B /* TYEmailVerify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYEmailVerify.m; sourceTree = "<group>"; };
+		6764CBAC1AD2ECAE000A090B /* RSSettingSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSettingSelectView.h; sourceTree = "<group>"; };
+		6764CBAD1AD2ECAE000A090B /* RSSettingSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingSelectView.m; sourceTree = "<group>"; };
+		6764CBAE1AD2ECAE000A090B /* RSSettingSelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSettingSelectView.xib; sourceTree = "<group>"; };
+		6764CBB21AD2ED60000A090B /* RSCommonLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCommonLabel.h; sourceTree = "<group>"; };
+		6764CBB31AD2ED60000A090B /* RSCommonLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCommonLabel.m; sourceTree = "<group>"; };
+		6764CBB41AD2ED60000A090B /* RSMultiImageEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMultiImageEditView.h; sourceTree = "<group>"; };
+		6764CBB51AD2ED60000A090B /* RSMultiImageEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMultiImageEditView.m; sourceTree = "<group>"; };
+		6764CBB61AD2ED60000A090B /* RSRoundImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRoundImageView.h; sourceTree = "<group>"; };
+		6764CBB71AD2ED60000A090B /* RSRoundImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRoundImageView.m; sourceTree = "<group>"; };
+		6764CBB81AD2ED60000A090B /* RSRoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSRoundView.swift; sourceTree = "<group>"; };
+		6764CBB91AD2ED60000A090B /* RSSeparateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSeparateView.h; sourceTree = "<group>"; };
+		6764CBBA1AD2ED60000A090B /* RSSeparateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSeparateView.m; sourceTree = "<group>"; };
+		6764CBBC1AD2ED60000A090B /* RSShareActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSShareActionView.h; sourceTree = "<group>"; };
+		6764CBBD1AD2ED60000A090B /* RSShareActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSShareActionView.m; sourceTree = "<group>"; };
+		6764CBBE1AD2ED60000A090B /* RSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSView.swift; sourceTree = "<group>"; };
+		6764CBBF1AD2ED60000A090B /* TYCustomBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCustomBtn.h; sourceTree = "<group>"; };
+		6764CBC01AD2ED60000A090B /* TYCustomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYCustomBtn.m; sourceTree = "<group>"; };
+		6764CBC11AD2ED60000A090B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		6764CBC21AD2ED60000A090B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		6764CBC31AD2ED60000A090B /* UIImage+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TY.h"; sourceTree = "<group>"; };
+		6764CBC41AD2ED60000A090B /* UIImage+TY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TY.m"; sourceTree = "<group>"; };
+		6764CBC51AD2ED60000A090B /* UIView+Ellipse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ellipse.h"; sourceTree = "<group>"; };
+		6764CBC61AD2ED60000A090B /* UIView+Ellipse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ellipse.m"; sourceTree = "<group>"; };
+		6764CBD21AD2F098000A090B /* TYThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYThread.h; sourceTree = "<group>"; };
+		6764CBD31AD2F098000A090B /* TYThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYThread.m; sourceTree = "<group>"; };
+		6764CBD51AD2F2AD000A090B /* TYPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPlaceholderTextView.h; sourceTree = "<group>"; };
+		6764CBD61AD2F2AD000A090B /* TYPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPlaceholderTextView.m; sourceTree = "<group>"; };
 		67695A481AB73DF400FC595B /* TYDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDrawViewController.h; sourceTree = "<group>"; };
 		67695A491AB73DF400FC595B /* TYDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDrawViewController.m; sourceTree = "<group>"; };
 		67695A4C1AB73E4700FC595B /* TyDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyDrawView.h; sourceTree = "<group>"; };
 		67695A4D1AB73E4700FC595B /* TyDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyDrawView.m; sourceTree = "<group>"; };
-		67695A501AB73FC800FC595B /* UIImage+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TY.h"; sourceTree = "<group>"; };
-		67695A511AB73FC800FC595B /* UIImage+TY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TY.m"; sourceTree = "<group>"; };
 		678B3E221AA7F8E00021ED6D /* TYSharePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSharePath.h; sourceTree = "<group>"; };
 		678B3E231AA7F8E00021ED6D /* TYSharePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSharePath.m; sourceTree = "<group>"; };
 		67FD72351AD0D998007EAE30 /* TYRowMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYRowMapper.h; sourceTree = "<group>"; };
@@ -175,6 +245,8 @@
 		67376C7A1AB7C86300EB7215 /* TextView */ = {
 			isa = PBXGroup;
 			children = (
+				6764CBD51AD2F2AD000A090B /* TYPlaceholderTextView.h */,
+				6764CBD61AD2F2AD000A090B /* TYPlaceholderTextView.m */,
 				67376C7B1AB7C86300EB7215 /* TYTextView.h */,
 				67376C7C1AB7C86300EB7215 /* TYTextView.m */,
 			);
@@ -210,7 +282,7 @@
 				6755DEDF1AA4037D000120B9 /* View */,
 				6755DEE01AA4037D000120B9 /* ViewController */,
 				6755DEF71AA40CD2000120B9 /* Common */,
-				6755DEDC1AA4037D000120B9 /* 3rk */,
+				6764CB901AD2DF22000A090B /* 3rk */,
 				6755DEDD1AA4037D000120B9 /* Frameworks */,
 				6755DEC31AA40267000120B9 /* Images.xcassets */,
 				6755DEB61AA40267000120B9 /* Supporting Files */,
@@ -247,17 +319,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6755DEDC1AA4037D000120B9 /* 3rk */ = {
-			isa = PBXGroup;
-			children = (
-				6755DF541AA463D2000120B9 /* MBProgressHUD */,
-			);
-			path = 3rk;
-			sourceTree = "<group>";
-		};
 		6755DEDD1AA4037D000120B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6764CBA31AD2E7A8000A090B /* Base */,
+				6764CB9F1AD2E571000A090B /* security */,
 				6755DF5D1AA4660A000120B9 /* DataBase */,
 			);
 			path = Frameworks;
@@ -266,6 +332,8 @@
 		6755DEDE1AA4037D000120B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6764CB9B1AD2E243000A090B /* Other */,
+				6764CB971AD2E09F000A090B /* Access */,
 				672F59BA1AD19537002BC84C /* Animation */,
 				678B3E211AA7F8C90021ED6D /* Assist */,
 				6709A4BC1AA479BC004CF88A /* Storage */,
@@ -277,6 +345,8 @@
 		6755DEDF1AA4037D000120B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6764CBB11AD2ED60000A090B /* common */,
+				6764CBAB1AD2ECAE000A090B /* PickerVew */,
 				67376C7A1AB7C86300EB7215 /* TextView */,
 				67695A4F1AB73F7200FC595B /* Other */,
 				67695A4B1AB73E3500FC595B /* DrawView */,
@@ -379,9 +449,21 @@
 		6755DF411AA459F9000120B9 /* RegisterViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6755DF491AA45D0D000120B9 /* TYRegisterViewController.storyboard */,
-				6755DF421AA45A0F000120B9 /* TYRegisterViewController.h */,
-				6755DF431AA45A0F000120B9 /* TYRegisterViewController.m */,
+				674364F21AD2D06300CA6EF0 /* RSRegisterViewController.storyboard */,
+				674364F41AD2D10600CA6EF0 /* RSEmailRegisterViewController.h */,
+				674364F51AD2D10600CA6EF0 /* RSEmailRegisterViewController.m */,
+				674364F61AD2D10600CA6EF0 /* TYFillPersonalMessageViewControllr.h */,
+				674364F71AD2D10600CA6EF0 /* TYFillPersonalMessageViewControllr.m */,
+				674364F81AD2D10600CA6EF0 /* TYFillProfileViewController.h */,
+				674364F91AD2D10600CA6EF0 /* TYFillProfileViewController.m */,
+				674364FC1AD2D10600CA6EF0 /* RSTextFieldKeyboardViewController.h */,
+				674364FD1AD2D10600CA6EF0 /* RSTextFieldKeyboardViewController.m */,
+				674364FE1AD2D10600CA6EF0 /* TYRegisterHomeViewController.h */,
+				674364FF1AD2D10600CA6EF0 /* TYRegisterHomeViewController.m */,
+				674365001AD2D10600CA6EF0 /* VPImageCropperViewController.h */,
+				674365011AD2D10600CA6EF0 /* VPImageCropperViewController.m */,
+				6743650C1AD2DCA900CA6EF0 /* TYRegisterViewController.h */,
+				6743650D1AD2DCA900CA6EF0 /* TYRegisterViewController.m */,
 			);
 			path = RegisterViewController;
 			sourceTree = "<group>";
@@ -395,18 +477,6 @@
 			path = LoginViewController;
 			sourceTree = "<group>";
 		};
-		6755DF541AA463D2000120B9 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				6755DF551AA463D2000120B9 /* MBProgressHUD+MJ.h */,
-				6755DF561AA463D2000120B9 /* MBProgressHUD+MJ.m */,
-				6755DF571AA463D2000120B9 /* MBProgressHUD.bundle */,
-				6755DF581AA463D2000120B9 /* MBProgressHUD.h */,
-				6755DF591AA463D2000120B9 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		6755DF5D1AA4660A000120B9 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +486,110 @@
 				6755DF5F1AA466E9000120B9 /* TYDatabaseConnector.m */,
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		6764CB901AD2DF22000A090B /* 3rk */ = {
+			isa = PBXGroup;
+			children = (
+				6764CB911AD2DF2E000A090B /* HUD */,
+			);
+			path = 3rk;
+			sourceTree = "<group>";
+		};
+		6764CB911AD2DF2E000A090B /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				6764CB921AD2DF2E000A090B /* RSProgressHUD.bundle */,
+				6764CB931AD2DF2E000A090B /* RSProgressHUD.h */,
+				6764CB941AD2DF2E000A090B /* RSProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		6764CB971AD2E09F000A090B /* Access */ = {
+			isa = PBXGroup;
+			children = (
+				6764CB981AD2E13F000A090B /* TYAccountAccess.h */,
+				6764CB991AD2E13F000A090B /* TYAccountAccess.m */,
+			);
+			path = Access;
+			sourceTree = "<group>";
+		};
+		6764CB9B1AD2E243000A090B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6764CB9C1AD2E24D000A090B /* TYPasswordEncoder.h */,
+				6764CB9D1AD2E24D000A090B /* TYPasswordEncoder.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		6764CB9F1AD2E571000A090B /* security */ = {
+			isa = PBXGroup;
+			children = (
+				6764CBA01AD2E584000A090B /* TYNameVerify.h */,
+				6764CBA11AD2E584000A090B /* TYNameVerify.m */,
+				6764CBA81AD2EA1D000A090B /* TYEmailVerify.h */,
+				6764CBA91AD2EA1D000A090B /* TYEmailVerify.m */,
+			);
+			path = security;
+			sourceTree = "<group>";
+		};
+		6764CBA31AD2E7A8000A090B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				6764CBA41AD2E8A9000A090B /* RSOptionDefines.h */,
+				6764CBA51AD2E8A9000A090B /* RSOptions.h */,
+				6764CBA61AD2E8A9000A090B /* RSOptions.m */,
+				6764CBD21AD2F098000A090B /* TYThread.h */,
+				6764CBD31AD2F098000A090B /* TYThread.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		6764CBAB1AD2ECAE000A090B /* PickerVew */ = {
+			isa = PBXGroup;
+			children = (
+				6764CBAC1AD2ECAE000A090B /* RSSettingSelectView.h */,
+				6764CBAD1AD2ECAE000A090B /* RSSettingSelectView.m */,
+				6764CBAE1AD2ECAE000A090B /* RSSettingSelectView.xib */,
+			);
+			path = PickerVew;
+			sourceTree = "<group>";
+		};
+		6764CBB11AD2ED60000A090B /* common */ = {
+			isa = PBXGroup;
+			children = (
+				6764CBB21AD2ED60000A090B /* RSCommonLabel.h */,
+				6764CBB31AD2ED60000A090B /* RSCommonLabel.m */,
+				6764CBB41AD2ED60000A090B /* RSMultiImageEditView.h */,
+				6764CBB51AD2ED60000A090B /* RSMultiImageEditView.m */,
+				6764CBB61AD2ED60000A090B /* RSRoundImageView.h */,
+				6764CBB71AD2ED60000A090B /* RSRoundImageView.m */,
+				6764CBB81AD2ED60000A090B /* RSRoundView.swift */,
+				6764CBB91AD2ED60000A090B /* RSSeparateView.h */,
+				6764CBBA1AD2ED60000A090B /* RSSeparateView.m */,
+				6764CBBB1AD2ED60000A090B /* RSShareActionView */,
+				6764CBBE1AD2ED60000A090B /* RSView.swift */,
+				6764CBBF1AD2ED60000A090B /* TYCustomBtn.h */,
+				6764CBC01AD2ED60000A090B /* TYCustomBtn.m */,
+				6764CBC11AD2ED60000A090B /* UIImage+Resize.h */,
+				6764CBC21AD2ED60000A090B /* UIImage+Resize.m */,
+				6764CBC31AD2ED60000A090B /* UIImage+TY.h */,
+				6764CBC41AD2ED60000A090B /* UIImage+TY.m */,
+				6764CBC51AD2ED60000A090B /* UIView+Ellipse.h */,
+				6764CBC61AD2ED60000A090B /* UIView+Ellipse.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		6764CBBB1AD2ED60000A090B /* RSShareActionView */ = {
+			isa = PBXGroup;
+			children = (
+				6764CBBC1AD2ED60000A090B /* RSShareActionView.h */,
+				6764CBBD1AD2ED60000A090B /* RSShareActionView.m */,
+			);
+			path = RSShareActionView;
 			sourceTree = "<group>";
 		};
 		67695A461AB73DA200FC595B /* VideoViewController */ = {
@@ -448,8 +622,6 @@
 			children = (
 				67376C7E1AB7C94400EB7215 /* NSString+TY.h */,
 				67376C7F1AB7C94400EB7215 /* NSString+TY.m */,
-				67695A501AB73FC800FC595B /* UIImage+TY.h */,
-				67695A511AB73FC800FC595B /* UIImage+TY.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -566,8 +738,9 @@
 				6755DEF61AA40C8A000120B9 /* WelcomeViewController.storyboard in Resources */,
 				6755DEC41AA40267000120B9 /* Images.xcassets in Resources */,
 				67FD72431AD0E20E007EAE30 /* Main.storyboard in Resources */,
-				6755DF4A1AA45D0D000120B9 /* TYRegisterViewController.storyboard in Resources */,
-				6755DF5B1AA463D2000120B9 /* MBProgressHUD.bundle in Resources */,
+				674364F31AD2D06300CA6EF0 /* RSRegisterViewController.storyboard in Resources */,
+				6764CB951AD2DF2E000A090B /* RSProgressHUD.bundle in Resources */,
+				6764CBB01AD2ECAE000A090B /* RSSettingSelectView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,35 +791,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67695A521AB73FC800FC595B /* UIImage+TY.m in Sources */,
 				6755DEEC1AA40B9E000120B9 /* TYBaseViewController.m in Sources */,
+				6764CBD01AD2ED60000A090B /* UIImage+TY.m in Sources */,
 				67FD723C1AD0DB30007EAE30 /* AppDelegate.m in Sources */,
+				6764CBC81AD2ED60000A090B /* RSMultiImageEditView.m in Sources */,
+				6764CBD11AD2ED60000A090B /* UIView+Ellipse.m in Sources */,
 				67695A4A1AB73DF400FC595B /* TYDrawViewController.m in Sources */,
 				6709A49A1AA46B67004CF88A /* TYDebugLog.m in Sources */,
-				6755DF441AA45A0F000120B9 /* TYRegisterViewController.m in Sources */,
+				6764CBC91AD2ED60000A090B /* RSRoundImageView.m in Sources */,
 				6755DEE91AA40B80000120B9 /* TYBaseView.m in Sources */,
+				674365081AD2D10600CA6EF0 /* VPImageCropperViewController.m in Sources */,
+				6764CB9A1AD2E13F000A090B /* TYAccountAccess.m in Sources */,
 				678B3E241AA7F8E00021ED6D /* TYSharePath.m in Sources */,
 				6755DF601AA466E9000120B9 /* TYDatabaseConnector.m in Sources */,
-				6755DF5A1AA463D2000120B9 /* MBProgressHUD+MJ.m in Sources */,
+				674365021AD2D10600CA6EF0 /* RSEmailRegisterViewController.m in Sources */,
 				6755DEE61AA40B57000120B9 /* TYObject.m in Sources */,
+				6764CBAA1AD2EA1D000A090B /* TYEmailVerify.m in Sources */,
 				672F59B91AD19327002BC84C /* TYBaseNavigationController.m in Sources */,
-				6755DF5C1AA463D2000120B9 /* MBProgressHUD.m in Sources */,
 				6755DEF01AA40BD5000120B9 /* TYBaseCell.m in Sources */,
 				67FD723D1AD0DB30007EAE30 /* ViewController.m in Sources */,
 				6709A49E1AA46EF1004CF88A /* TYAccount.m in Sources */,
 				6755DEF31AA40C12000120B9 /* TYBaseTableViewController.m in Sources */,
+				6764CBCE1AD2ED60000A090B /* TYCustomBtn.m in Sources */,
 				6755DEB91AA40267000120B9 /* main.m in Sources */,
 				6755DF391AA455DE000120B9 /* TYViewControllerLoader.m in Sources */,
+				6764CBD41AD2F098000A090B /* TYThread.m in Sources */,
+				6764CBC71AD2ED60000A090B /* RSCommonLabel.m in Sources */,
+				674365041AD2D10600CA6EF0 /* TYFillProfileViewController.m in Sources */,
 				672F59BD1AD19537002BC84C /* TYAnimationController.m in Sources */,
+				6764CB961AD2DF2E000A090B /* RSProgressHUD.m in Sources */,
 				67FD72371AD0D998007EAE30 /* TYRowMapper.m in Sources */,
 				67695A4E1AB73E4700FC595B /* TyDrawView.m in Sources */,
 				67376C801AB7C94400EB7215 /* NSString+TY.m in Sources */,
+				6764CBA21AD2E584000A090B /* TYNameVerify.m in Sources */,
 				6755DF401AA459B1000120B9 /* TYHomeViewController.m in Sources */,
+				6764CBCC1AD2ED60000A090B /* RSShareActionView.m in Sources */,
+				6764CBCB1AD2ED60000A090B /* RSSeparateView.m in Sources */,
 				67376C7D1AB7C86300EB7215 /* TYTextView.m in Sources */,
+				674365071AD2D10600CA6EF0 /* TYRegisterHomeViewController.m in Sources */,
+				6764CBAF1AD2ECAE000A090B /* RSSettingSelectView.m in Sources */,
 				6755DF481AA45A56000120B9 /* TYLoginViewController.m in Sources */,
+				6743650E1AD2DCA900CA6EF0 /* TYRegisterViewController.m in Sources */,
+				6764CBCD1AD2ED60000A090B /* RSView.swift in Sources */,
+				6764CB9E1AD2E24D000A090B /* TYPasswordEncoder.m in Sources */,
+				6764CBCF1AD2ED60000A090B /* UIImage+Resize.m in Sources */,
 				6755DF341AA44226000120B9 /* TYWelcomeViewController.m in Sources */,
+				6764CBA71AD2E8A9000A090B /* RSOptions.m in Sources */,
+				674365061AD2D10600CA6EF0 /* RSTextFieldKeyboardViewController.m in Sources */,
+				6764CBCA1AD2ED60000A090B /* RSRoundView.swift in Sources */,
 				6709A4BF1AA479CF004CF88A /* TYShareStorage.m in Sources */,
 				672F59C01AD1966C002BC84C /* TYViewControllerAnimationDelegate.m in Sources */,
+				6764CBD71AD2F2AD000A090B /* TYPlaceholderTextView.m in Sources */,
+				674365031AD2D10600CA6EF0 /* TYFillPersonalMessageViewControllr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +967,7 @@
 			baseConfigurationReference = E3DDD85A6DE1F8802EC93DC9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = /Users/renyuxian/Desktop/aaaa/TYHomework/TYHomework/TYHomework.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TYHomework/TYHomework.pch";
 				INFOPLIST_FILE = TYHomework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -783,7 +979,7 @@
 			baseConfigurationReference = BC757E76103B4A05570EB6BB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = /Users/renyuxian/Desktop/aaaa/TYHomework/TYHomework/TYHomework.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TYHomework/TYHomework.pch";
 				INFOPLIST_FILE = TYHomework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

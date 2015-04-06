@@ -13,5 +13,7 @@
 - (CGSize)sizeWithFontSize:(int)fontSize maxWidth:(CGFloat)maxWidth;
 
 - (CGSize)sizeWithFont:(UIFont *)font maxWidth:(CGFloat)maxWidth;
-  
+- (NSInteger)complexLength;
+- (NSString *)sha1;
+- (unsigned long)crc32;
 @end

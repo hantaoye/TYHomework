@@ -30,6 +30,7 @@
 
 //吧View视图截图
 + (instancetype)captureWithView:(UIView *)view;
++ (instancetype)captureWithLayer:(CALayer *)layer;
 
 //两张图片合成一张合成
 + (instancetype)captureWithFirstImage:(UIImage *)firstImage secondImage:(UIImage *)secondImage borderWidth:(CGFloat)borderWith;
@@ -41,4 +42,6 @@
 - (NSData *)compressPhoto;
 
 - (instancetype)compress:(CGFloat)compression;
+
++ (void)latestImageFromAssetsLibrary:(void (^)(UIImage *image, NSError *error))hanlder;
 @end

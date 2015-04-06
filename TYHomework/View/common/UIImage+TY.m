@@ -7,9 +7,9 @@
 //
 
 #import "UIImage+TY.h"
-#import "TYDebugLog.h"
-//#import "RyxDebugLogger.h"
+#import "RSDebugLogger.h"
 #import <UIImage-ResizeMagick/UIImage+ResizeMagick.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 #define borders 10
 
@@ -19,9 +19,18 @@
 
 @implementation UIImage (TY)
 
++ (instancetype)captureWithLayer:(CALayer *)layer {
+    UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [layer renderInContext:context];
+    UIImage *lastImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return lastImage;
+}
 
 + (instancetype)captureWithView:(UIView *)view
 {
+    //    return [self captureWithLayer:view.layer];
     UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -43,11 +52,11 @@
         CGFloat compression = 0.9f;
         CGFloat maxCompression = 0.1f;
         while ([photoData length] > MAX_FILE_SIZE && compression > maxCompression) {
-            [TYDebugLog debugFormat:@"image compress process (%ld): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
+            [RSDebugLogger debugFormat:@"image compress process (%ld): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
             compression -= 0.1;
             photoData = UIImageJPEGRepresentation(_image, compression);
         }
-        [TYDebugLog debugFormat:@"image compress process (%ld [final]): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
+        [RSDebugLogger debugFormat:@"image compress process (%ld [final]): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
     }
     return photoData;
 }
@@ -192,6 +201,25 @@
 {
     UIImage *image = [self imageNamed:name];
     return [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height * top, image.size.width * left, image.size.height * (1 - top), image.size.width * (1 - left)) resizingMode:UIImageResizingModeTile];
+}
+
++ (void)latestImageFromAssetsLibrary:(void (^)(UIImage *image, NSError *error))hanlder {
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets]-1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
+            // The end of the enumeration is signaled by asset == nil.
+            if (alAsset) {
+                ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+                UIImage *latestPhoto = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+                hanlder(latestPhoto, nil);
+            }
+        }];
+    } failureBlock: ^(NSError *error) {
+        // Typically you should handle an error more gracefully than this.
+        NSLog(@"No groups");
+        hanlder(nil, error);
+    }];
 }
 
 @end
