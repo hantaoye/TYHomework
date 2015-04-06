@@ -165,5 +165,4 @@ TYHomework.xcodeproj/project.xcworkspace/xcshareddata/FITogether.xccheckout
 TYHomework.xcworkspace/xcshareddata/FITogether.xccheckout
 *.framework
 *.a
-Build/
-xcuserdata
+git rm build/\*
