@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSRoundImageView : UIImageView
+@interface TYRoundImageView : UIImageView
 @property (nonatomic, assign, getter=isClickEnable) BOOL clickEnable;
 
-@property (nonatomic, assign, getter=isSelected, readonly) BOOL selected;
+@property (nonatomic, assign, getter=isSelected) BOOL selected;
 
 @property (nonatomic, assign, getter=isNoRound) BOOL noRound;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ftm-Y0-9tn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ftm-Y0-9tn">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -110,7 +110,7 @@
         <!--邮箱登录-->
         <scene sceneID="L9Q-O9-EOI">
             <objects>
-                <tableViewController id="Vjb-RM-WVu" customClass="RSLoginViewController" sceneMemberID="viewController">
+                <tableViewController id="Vjb-RM-WVu" customClass="TYLoginViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="45" sectionHeaderHeight="44" sectionFooterHeight="1" id="xNY-kx-CE4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -496,7 +496,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yjq-5W-RdF" customClass="RSRoundImageView">
+                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yjq-5W-RdF" customClass="TYRoundImageView">
                                     <rect key="frame" x="250" y="40" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="3ss-3f-M5s"/>
@@ -824,7 +824,7 @@
         <!--忘记密码-->
         <scene sceneID="oKt-xg-Y3S">
             <objects>
-                <tableViewController id="5Ld-BK-ufu" customClass="RSForgetPasswordViewController" sceneMemberID="viewController">
+                <tableViewController id="5Ld-BK-ufu" customClass="TYForgetPasswordViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="45" sectionHeaderHeight="10" sectionFooterHeight="10" id="uKe-IW-P4D">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

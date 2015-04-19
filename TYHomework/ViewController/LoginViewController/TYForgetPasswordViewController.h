@@ -1,5 +1,5 @@
 //
-//  RSLoginViewController.h
+//  RSForgetPasswordViewController.h
 //  FITogether
 //
 //  Created by taoYe on 15/3/17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TYLoginViewController : UITableViewController
+@interface TYForgetPasswordViewController : UITableViewController
 
 @end

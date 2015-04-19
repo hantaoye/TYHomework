@@ -11,7 +11,7 @@
 #import "TYFillPersonalMessageViewControllr.h"
 #import "VPImageCropperViewController.h"
 #import "RSSettingSelectView.h"
-#import "RSRoundImageView.h"
+#import "TYRoundImageView.h"
 #import <CoreLocation/CoreLocation.h>
 #import "RSOptions.h"
 #import "TYAccountAccess.h"
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
 @property (nonatomic, strong) RSSettingSelectView *selectedView;
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *nextBarButton;
-@property (nonatomic, weak) IBOutlet RSRoundImageView *avatarImageView;
+@property (nonatomic, weak) IBOutlet TYRoundImageView *avatarImageView;
 
 @property (nonatomic, weak) IBOutlet UIButton *maleButton;
 @property (nonatomic, weak) IBOutlet UIButton *femaleButton;

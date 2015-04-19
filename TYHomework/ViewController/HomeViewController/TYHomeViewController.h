@@ -9,5 +9,7 @@
 #import "TYBaseViewController.h"
 
 @interface TYHomeViewController : TYBaseViewController
+- (void)selectedControllerWithIndex:(NSUInteger)index;
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "UIImage+TY.h"
-#import "RSDebugLogger.h"
+#import "TYDebugLog.h"
 #import <UIImage-ResizeMagick/UIImage+ResizeMagick.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -52,11 +52,11 @@
         CGFloat compression = 0.9f;
         CGFloat maxCompression = 0.1f;
         while ([photoData length] > MAX_FILE_SIZE && compression > maxCompression) {
-            [RSDebugLogger debugFormat:@"image compress process (%ld): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
+            [TYDebugLog debugFormat:@"image compress process (%ld): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
             compression -= 0.1;
             photoData = UIImageJPEGRepresentation(_image, compression);
         }
-        [RSDebugLogger debugFormat:@"image compress process (%ld [final]): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
+        [TYDebugLog debugFormat:@"image compress process (%ld [final]): currentSize -> %ld", (unsigned long)loop++, (unsigned long)[photoData length]];
     }
     return photoData;
 }

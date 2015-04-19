@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSSeparateView : UIView
+@interface TYSeparateView : UIView
 
-
+@property (strong, nonatomic) UIColor *bgColor;
 
 @end

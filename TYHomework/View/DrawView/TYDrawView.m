@@ -1,13 +1,15 @@
 //
-//  TyDrawView.m
-//  TYHomework
+//  TYView.m
+//  drawText
 //
-//  Created by taoYe on 15/3/17.
-//  Copyright (c) 2015年 RenYuXian. All rights reserved.
+//  Created by qingyun on 14-9-26.
+//  Copyright (c) 2014年 qingyun. All rights reserved.
 //
 
-#import "TyDrawView.h"
-@interface TyDrawView ()
+#import "TYDrawView.h"
+
+@interface TYDrawView ()
+
 @property (nonatomic, strong) NSMutableArray *allTouches;
 @property (nonatomic, strong) NSMutableArray *touchsPath;
 @property (nonatomic, assign) NSInteger red;
@@ -16,7 +18,7 @@
 
 @end
 
-@implementation TyDrawView
+@implementation TYDrawView
 
 - (NSMutableArray *)allTouches
 {
@@ -72,59 +74,59 @@
 }
 
 /*- (void)drawRect:(CGRect)rect
- {
- CGContextRef context = UIGraphicsGetCurrentContext();
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    [[UIColor blackColor] set];
+    for (NSMutableArray *drawArray in self.allTouches) {
+        for (int i = 0; i < drawArray.count; i++) {
+            
+            CGPoint drawPoint = [drawArray[i] CGPointValue];
+            if (i == 0) {
+                
+                CGContextMoveToPoint(context, drawPoint.x, drawPoint.y);
+            } else {
+            
+                CGContextAddLineToPoint(context, drawPoint.x, drawPoint.y);
+            }
+            
+        }
+        CGContextStrokePath(context);
+    }
  
- [[UIColor blackColor] set];
- for (NSMutableArray *drawArray in self.allTouches) {
- for (int i = 0; i < drawArray.count; i++) {
- 
- CGPoint drawPoint = [drawArray[i] CGPointValue];
- if (i == 0) {
- 
- CGContextMoveToPoint(context, drawPoint.x, drawPoint.y);
- } else {
- 
- CGContextAddLineToPoint(context, drawPoint.x, drawPoint.y);
- }
- 
- }
- CGContextStrokePath(context);
- }
- 
- 
- 
- }
- 
- - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
- {
- UITouch *touch = [touches anyObject];
- CGPoint beganPoint = [touch locationInView:self];
- 
- NSMutableArray *linePath = [NSMutableArray array];
- 
- [linePath addObject:[NSValue valueWithCGPoint:beganPoint]];
- 
- [self.allTouches addObject:linePath];
- 
- [self setNeedsDisplay];
- 
- }
- 
- - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
- {
- UITouch *touch = [touches anyObject];
- CGPoint movedPoint = [touch locationInView:self];
- 
- [[self.allTouches lastObject] addObject:[NSValue valueWithCGPoint:movedPoint]];
- [self setNeedsDisplay];
- }
- 
- - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
- {
- [self touchesMoved:touches withEvent:event];
- }
- */
+    
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint beganPoint = [touch locationInView:self];
+    
+    NSMutableArray *linePath = [NSMutableArray array];
+    
+    [linePath addObject:[NSValue valueWithCGPoint:beganPoint]];
+    
+    [self.allTouches addObject:linePath];
+    
+    [self setNeedsDisplay];
+    
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint movedPoint = [touch locationInView:self];
+    
+    [[self.allTouches lastObject] addObject:[NSValue valueWithCGPoint:movedPoint]];
+    [self setNeedsDisplay];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self touchesMoved:touches withEvent:event];
+}
+*/
 
 - (NSMutableArray *)touchsPath
 {

@@ -6,12 +6,10 @@
 //  Copyright (c) 2014年 closure. All rights reserved.
 //
 
-#import "RSRoundImageView.h"
+#import "TYRoundImageView.h"
 #import "UIImage+TY.h"
 
-@interface RSRoundImageView ()
-
-@property (nonatomic, assign, getter=isSelected) BOOL selected;
+@interface TYRoundImageView ()
 
 @property (nonatomic, strong) UIView *backgroundView;
 
@@ -19,7 +17,7 @@
 
 
 @end
-@implementation RSRoundImageView
+@implementation TYRoundImageView
 
 - (UIView *)backgroundView {
     if (!_backgroundView) {
@@ -103,7 +101,7 @@
 }
 
 - (void)setupRoundImageView {
-    [self.layer setCornerRadius:(MIN(self.frame.size.height/2, self.frame.size.width))];
+    [self.layer setCornerRadius:(MIN(self.frame.size.height / 2, self.frame.size.width / 2))];
     [self.layer setMasksToBounds:YES];
     [self setClipsToBounds:YES];
 }
@@ -112,6 +110,10 @@
     [super layoutSubviews];
     if (!self.isNoRound) {
         [self setupRoundImageView];
+    }
+    if (self.selected) {
+        self.selectedView.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+        self.backgroundView.frame = self.bounds;
     }
 }
 

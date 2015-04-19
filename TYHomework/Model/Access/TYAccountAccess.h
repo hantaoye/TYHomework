@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class TYAccount;
+@class TYAccount, CLLocation;
 
 typedef void (^RSAccountAction)(TYAccount *account, NSError *error);
 typedef void (^RSAccountsAction)(NSArray *accounts, NSError *error);
+typedef void (^RSDoneAction)(NSError *error);
 
 @interface TYAccountAccess : NSObject
 

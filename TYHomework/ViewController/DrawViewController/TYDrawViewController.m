@@ -7,31 +7,43 @@
 //
 
 #import "TYDrawViewController.h"
+#import "TYDrawView.h"
 
 @interface TYDrawViewController ()
+@property (weak, nonatomic) IBOutlet TYDrawView *drawView;
 
 @end
 
 @implementation TYDrawViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
 
+- (IBAction)changeColor:(UISlider *)sender {
+    
+    [self.drawView changeColorWithRed:sender.value green:sender.value blue:sender.value];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)clear {
+    [self.drawView clear];
+    
 }
-*/
 
+- (IBAction)back {
+    [self.drawView back];
+}
+
+- (IBAction)save {
+    [self.drawView save];
+}
 @end
