@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 closure. All rights reserved.
 //
 
-#import "RSObject.h"
+#import "TYObject.h"
 #import <UIKit/UIKit.h>
 
-@interface RSOptions : RSObject
+@interface RSOptions : TYObject
 
 #define OPTIONS(name, type, pp, default, description) \
     @property (nonatomic, pp, readonly) type name;

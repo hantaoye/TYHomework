@@ -8,7 +8,7 @@
 
 #import "TYPlaceholderTextView.h"
 
-@implementation RSPlaceholderTextView
+@implementation TYPlaceholderTextView
 - (NSString *)placeholder {
     return [super placeholder];
 }

@@ -15,15 +15,28 @@
 /** fdasfa*/
 @property (nonatomic, strong) NSDate *expiresTime; // 账号的过期时间
 
+@property (assign, nonatomic) long long ID;
+
 @property (nonatomic, copy) NSString *name;//用户名
+@property (assign, nonatomic) NSInteger age;
 
 @property (nonatomic, copy) NSString *account;
 
-@property (nonatomic, copy) NSString *pasword;
+@property (nonatomic, copy) NSString *password;
 
-@property (nonatomic, copy) NSString *profileImageName;//头像
+@property (nonatomic, copy) NSString *profileImageURL;//头像
+
+@property (copy, nonatomic) NSString *avatarURL;
+@property (copy, nonatomic) NSString *introduction;
+
+@property (assign, nonatomic) NSInteger gender;//性别
+
+@property (copy, nonatomic) NSString *location;
+
+
 
 
 + (instancetype)currentAccount;
 
+- (instancetype)initWithName:(NSString *)name ID:(long long)ID password:(NSString *)password profileIamgeURL:(NSString *)profileImageURL introduction:(NSString *)introduction;
 @end

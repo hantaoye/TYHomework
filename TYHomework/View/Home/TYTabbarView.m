@@ -46,7 +46,7 @@
  */
 - (void)btnClick:(TYTabbarButton *)btn
 {
-    if ([self.delegate respondsToSelector:@selector(customTabbar:fromBtnIndex:toBtnIndex:)]) {
+    if ([self.delegate respondsToSelector:@selector(tabbarView:fromBtnIndex:toBtnIndex:)]) {
         [self.delegate tabbarView:self fromBtnIndex:self.selectedBtn.tag - 1 toBtnIndex:btn.tag - 1];
     }
     self.selectedBtn.selected = NO;
@@ -61,7 +61,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
     CGFloat btnY = 0;
     CGFloat btnH = self.bounds.size.height;
     CGFloat btnW = self.bounds.size.width / (self.subviews.count);
@@ -78,16 +77,11 @@
 /**
  *  添加自定义的tabbarItem
  */
-- (TYTabbarButton *)addCustomTabBarItem:(UITabBarItem *)item
-{
+- (void)addTabbarButtonWithTitle:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage badgeVaule:(NSString *)badgeValue {
     TYTabbarButton *btn = [[TYTabbarButton alloc] init];
     [self addSubview:btn];
-    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-    [self.tabBarButtons addObject:btn];
-    if (self.subviews.count == 2) {
-        [self btnClick:btn];
-    }
-    return btn;
+    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:title image:image selectedImage:selectedImage badgeValue:badgeValue];
 }
 
 

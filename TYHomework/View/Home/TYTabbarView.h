@@ -10,16 +10,17 @@
 
 @class TYTabbarButton, TYTabbarView;
 
-@protocol TYCustomTabbarDelegate <NSObject>
+@protocol TYTabbarViewDelegate <NSObject>
 @optional
 - (void)tabbarView:(TYTabbarView *)tabbar fromBtnIndex:(NSUInteger)fromIndex toBtnIndex:(NSUInteger)toIndex;
 
 @end
 @interface TYTabbarView : UIView
 
-@property (nonatomic, weak) id<TYCustomTabbarDelegate> delegate;
+@property (nonatomic, weak) id<TYTabbarViewDelegate> delegate;
 
-- (TYTabbarButton *)addCustomTabBarItem:(UITabBarItem *)item;
+- (void)addTabbarButtonWithTitle:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage badgeVaule:(NSString *)badgeValue;
+
 - (void)selectedIndex:(NSUInteger)index;
 
 @end

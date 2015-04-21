@@ -10,9 +10,7 @@
 #import <VCTransitionsLibrary/CEBaseInteractionController.h>
 #import "TYTabbarView.h"
 
-#import "TYTabBarButton.h"
-
-@interface TYHomeViewController ()
+@interface TYHomeViewController () <TYTabbarViewDelegate>
 @property (weak, nonatomic) IBOutlet TYTabbarView *tabbarView;
 
 @end
@@ -21,7 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSArray *images = @[@"tabbar-feed", @"tabbar-message", @"tabbar-record"];
+    NSArray *selectedImages = @[@"tabbar-feed-selected",  @"tabbar-message-selected", @"tabbar-record-selected"];
+    NSArray *titles = @[@"相机", @"记笔记", @"搜索"];
+    for (int idx = 0; idx < 3; idx++) {
+        [self.tabbarView addTabbarButtonWithTitle:titles[idx] image:[UIImage imageNamed:images[idx]] selectedImage:[UIImage imageNamed:selectedImages[idx]] badgeVaule:0];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +42,16 @@
 }
 
 - (IBAction)pressedDrawBtn:(UIButton *)sender {
+}
+
+- (IBAction)pressedRecorderAudioBtn:(UIButton *)sender {
+}
+
+/**
+ *  tabbar的代理方法
+ */
+- (void)tabbarView:(TYTabbarView *)tabbar fromBtnIndex:(NSUInteger)fromIndex toBtnIndex:(NSUInteger)toIndex {
+#warning to do
 }
 
 

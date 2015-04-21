@@ -8,19 +8,31 @@
 
 #import "TYAccount.h"
 
+static TYAccount *__account = nil;
+
+
 @implementation TYAccount
 
 + (instancetype)currentAccount {
-    return [[self alloc] init];
-}
-
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    static TYAccount *account = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        account = [super allocWithZone:zone];
+        __account = nil;
     });
-    return account;
+    return __account;
+}
+
+//- (instancetype)initWithName:(NSString *)name ID:(long long)ID password:(NSString *)password profileIamgeURL:(NSString *)profileImageURL introduction:(NSString *)introduction {
+//    if (self = [super init]) {
+//        _name = name;
+//        _ID = ID;
+//        _password = password;
+//        
+//    }
+//    return self;
+//}
+
+- (void)setCurrentAccount:(TYAccount *)account {
+    __account = account;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {

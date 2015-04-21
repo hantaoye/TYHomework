@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZaX-5n-Uyo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -120,6 +120,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayK-Ex-SzK">
+                                <rect key="frame" x="-3" y="1" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCU-ar-mgt">
                                 <rect key="frame" x="536" y="20" width="44" height="44"/>
                                 <constraints>
@@ -173,9 +176,15 @@
                                     <constraint firstAttribute="height" constant="49" id="7EL-k3-gXO"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayK-Ex-SzK">
-                                <rect key="frame" x="-3" y="1" width="600" height="600"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd3-Q6-LFM">
+                                <rect key="frame" x="50" y="477" width="36" height="34"/>
+                                <state key="normal" title="录音">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedRecorderAudioBtn:" destination="8OB-iY-EmU" eventType="touchUpInside" id="Vmx-1x-fMh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -184,6 +193,7 @@
                             <constraint firstItem="WCU-ar-mgt" firstAttribute="top" secondItem="wKE-zn-mzU" secondAttribute="bottom" id="AUH-lc-fF6"/>
                             <constraint firstItem="ayK-Ex-SzK" firstAttribute="leading" secondItem="2eC-FL-kQo" secondAttribute="leading" id="Bea-gk-Q2z"/>
                             <constraint firstItem="biv-Bm-bLY" firstAttribute="top" secondItem="wKE-zn-mzU" secondAttribute="bottom" constant="83" id="IS4-GT-i9O"/>
+                            <constraint firstItem="Hde-k5-qLe" firstAttribute="top" secondItem="Kd3-Q6-LFM" secondAttribute="bottom" constant="40" id="UKo-8s-TeO"/>
                             <constraint firstAttribute="centerX" secondItem="ayK-Ex-SzK" secondAttribute="centerX" id="XDh-bz-s0L"/>
                             <constraint firstAttribute="centerY" secondItem="ayK-Ex-SzK" secondAttribute="centerY" id="ZZK-cg-6Wj"/>
                             <constraint firstItem="Hde-k5-qLe" firstAttribute="leading" secondItem="2eC-FL-kQo" secondAttribute="leading" id="bFs-tq-GhB"/>
@@ -196,6 +206,7 @@
                             <constraint firstAttribute="trailing" secondItem="kav-Sw-s5A" secondAttribute="trailing" constant="50" id="rfM-LS-dHo"/>
                             <constraint firstItem="j1p-U4-f5J" firstAttribute="top" secondItem="biv-Bm-bLY" secondAttribute="bottom" constant="200" id="wSi-G6-GC0"/>
                             <constraint firstItem="lER-TS-fAH" firstAttribute="leading" secondItem="2eC-FL-kQo" secondAttribute="leading" constant="50" id="z1n-k8-LWk"/>
+                            <constraint firstItem="Kd3-Q6-LFM" firstAttribute="leading" secondItem="lER-TS-fAH" secondAttribute="leading" id="zdh-HY-2nd"/>
                         </constraints>
                     </view>
                     <connections>

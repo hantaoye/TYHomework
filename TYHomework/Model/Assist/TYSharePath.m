@@ -20,5 +20,13 @@
     return fullPath;
 }
 
++ (NSString *)getAccountDateBasePath {
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:TYStoragePathComponent];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSString *fullPath = [path stringByAppendingPathComponent:@"account.db"];
+    return fullPath;
+}
 
 @end

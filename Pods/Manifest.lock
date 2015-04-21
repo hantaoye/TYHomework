@@ -10,6 +10,7 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
+  - SZTextView (1.2.1)
   - UIImage-ResizeMagick (0.0.1)
   - VCTransitionsLibrary (1.5.0)
 
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - MJExtension
   - SCRecorder
   - SDWebImage
+  - SZTextView
   - UIImage-ResizeMagick
   - VCTransitionsLibrary
 
@@ -28,6 +30,7 @@ SPEC CHECKSUMS:
   MJExtension: 62af61e1a53da0a244c3ae3aff415159bcbd0f0b
   SCRecorder: 8ed33007a1dca0392d1d33b4cf76aceb09724de4
   SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  SZTextView: 906df45afd3c1b24fc5252088d5ef8061513c238
   UIImage-ResizeMagick: f08c2d14d1e8a5f0b402185408785540562f2fe7
   VCTransitionsLibrary: d61fd9b7b6721942f0d583bcc0e7f8c31ec9271b
 

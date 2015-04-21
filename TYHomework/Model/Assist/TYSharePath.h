@@ -12,4 +12,6 @@
 
 + (NSString *)getShareStoragePath;
 
++ (NSString *)getAccountDateBasePath;
+
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 closure. All rights reserved.
 //
 
-#import "SZTextView.h"
+#import <SZTextView/SZTextView.h>
 
 @interface TYPlaceholderTextView : SZTextView
 @property (strong, nonatomic) IBInspectable UIColor *placeholderTextColor;

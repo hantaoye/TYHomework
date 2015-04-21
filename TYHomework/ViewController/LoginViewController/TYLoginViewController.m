@@ -9,8 +9,9 @@
 #import "TYLoginViewController.h"
 #import "TYEmailVerify.h"
 #import "RSProgressHUD.h"
-#import "RSLoginHelper.h"
-#import "RSBranchViewControllerLoader.h"
+#import "TYLoginHelper.h"
+#import "TYViewControllerLoader.h"
+#import "TYEmailVerify.h"
 
 @interface TYLoginViewController () <UITextFieldDelegate>
 
@@ -42,12 +43,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [TalkingData beginTrack:[self class]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [TalkingData endTrack:[self class]];
 }
 
 - (void)keyboardShow:(NSNotification *)notification {
@@ -68,7 +67,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == _emailTextField) {
         if (_emailTextField.text.length) {
-            _emailValid = [RSEmailVerify verify:_emailTextField.text];
+            _emailValid = [TYEmailVerify verify:_emailTextField.text];
         }
         if (_emailValid) {
             [textField resignFirstResponder];
@@ -108,7 +107,7 @@
             _loginLabel.enabled = NO;
         }
     } else if (textField == _emailTextField) {
-        if ([RSEmailVerify verify:str] && _passwordValid) {
+        if ([TYEmailVerify verify:str] && _passwordValid) {
             _emailValid = YES;
             _loginLabel.enabled = YES;
         } else {
@@ -129,7 +128,7 @@
 - (void)updateUI:(UITextField *)textField {
     if (textField == _emailTextField) {
         if (_emailTextField.text.length) {
-            _emailValid = [RSEmailVerify verify:_emailTextField.text];
+            _emailValid = [TYEmailVerify verify:_emailTextField.text];
         }
         if (_emailValid) {
             [_emailTextField resignFirstResponder];
@@ -154,9 +153,9 @@
 }
 
 - (IBAction)loginBtnPressed:(UIButton *)sender {
-    [RSLoginHelper loginWithEmail:_emailTextField.text password:_passwordTextField.text action:^(RSAccount *account, NSError *error) {
+    [TYLoginHelper loginWithEmail:_emailTextField.text password:_passwordTextField.text action:^(TYAccount *account, NSError *error) {
         if (account != nil) {
-            [RSBranchViewControllerLoader loadMainEntry:YES];
+            [TYViewControllerLoader loadMainEntry];
         }
     }];
 }
