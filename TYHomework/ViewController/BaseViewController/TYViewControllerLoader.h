@@ -9,6 +9,8 @@
 #import "TYObject.h"
 #import <UIKit/UIKit.h>
 
+
+@class TYDrawViewController;
 @interface TYViewControllerLoader : TYObject
 
 + (void)loadResgiterEntry;
@@ -16,5 +18,19 @@
 + (void)loadMainEntry;
 
 + (void)layout;
+
++ (TYDrawViewController *)drawViewController;
+
++ (UIStoryboard *)welcomeStoryboard;
+
++ (UIStoryboard *)homeStoryboard;
+
++ (UIStoryboard *)drawStoryboard;
+
++ (UIStoryboard *)videoStoryboard;
+
++ (UIStoryboard *)registerStoryboard;
+
++ (UIStoryboard *)noteStoryboard;
 
 @end

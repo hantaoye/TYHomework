@@ -8,6 +8,7 @@
 
 #import "TYRootHomeViewController.h"
 #import "TYRoundImageView.h"
+#import "TYAnimationController.h"
 
 @interface TYRootHomeViewController ()
 @property (weak, nonatomic) IBOutlet TYRoundImageView *iconImageView;
@@ -28,6 +29,11 @@
 }
 
 - (IBAction)pressedNextButton:(UIButton *)sender {
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    UIViewController *VC = segue.destinationViewController;
+//    VC.transitioningDelegate = [TYAnimationController new];
 }
 
 @end

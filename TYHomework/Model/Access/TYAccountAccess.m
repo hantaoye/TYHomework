@@ -10,18 +10,16 @@
 #import "TYPasswordEncoder.h"
 #import "TYSharePath.h"
 #import "TYAccount.h"
+#import "TYAccountDao.h"
 
 @implementation TYAccountAccess
 + (void)registerWithEmail:(NSString *)email password:(NSString *)password name:(NSString *)name action:(RSAccountAction)action {
-    NSString *path = [TYSharePath getAccountDateBasePath];
-    NSArray *array = [NSArray arrayWithContentsOfFile:path];
-    if (!array) {
-        TYAccount *account = [[TYAccount alloc] init];
+        TYAccountDao *accountDao = [TYAccountDao sharedDao];
         NSString *encodeString = [TYPasswordEncoder encode:password];
-       return action(account, nil);
-    }
-    NSError *error = nil;
-    return action(nil, error);
+
+    [accountDao insertAccountWithEmail:email password:encodeString name:name avatar:nil action:^(TYAccount *account) {
+        return action(account, nil);
+    }];
 }
 
 + (void)checkName:(NSString *)name action:(void (^)(BOOL, NSError *))action {
@@ -32,12 +30,14 @@
     account.name = name;
     if (gender != -1) account.gender = gender;
     if (age != -1) account.age = age;
-//    if (location) {
-//        dict[@"latitude"] = [NSString stringWithFormat:@"%f", [location coordinate].latitude];
-//        dict[@"longitude"] = [NSString stringWithFormat:@"%f", [location coordinate].longitude];
-//    }
     if (locationDescription) account.location = locationDescription;
     if (introduction) account.introduction = introduction;
+    if (avatar) {
+        
+        account.avatarURL = avatar;
+    }
+    TYAccountDao *dao = [TYAccountDao sharedDao];
+    [dao updateAccountWithAccountEmail:account.email account:account];
     
     [[TYShareStorage shareStorage] synchronize];
     return action(account, nil);
@@ -46,23 +46,15 @@
 
 + (void)loginWithEmail:(NSString *)email password:(NSString *)password action:(RSAccountAction)action {
     NSString *encoderString = [TYPasswordEncoder encode:password];
-
-//        __RyxTokenAccountWrapper *t = [__RyxTokenAccountWrapper parse:result];
-//        if (t) {
-//            [[t account] setPlatform:0];
-//            [[t account] setPassword:[RSPasswordEncoder encode:password]];
-//            if ([t token]) {
-//                [RSToken reloadToken:[t token]];
-//            }
-//            
-//            if ([t account]) {
-//                [RSAccount reloadAccount:[t account]];
-//            }
-//            
-//            return action([t account], error);
-//        }
-//        return action(nil, error);
-//    }];
+    TYAccountDao *accountDao = [TYAccountDao sharedDao];
+    [accountDao selectAccountWithEmail:email password:encoderString action:^(TYAccount *account) {
+        if (account) {
+            action(account, nil);
+        } else {
+            NSError *error = [NSError errorWithDomain:@"loginError" code:1 userInfo:@{NSLocalizedDescriptionKey: @"登录失败，没有这个账号"}];
+            action(nil, error);
+        }
+    }];
 }
 
 + (void)loginWithWeiboToken:(NSString *)token action:(RSAccountAction)action {
@@ -143,9 +135,23 @@
 }
 
 + (void)findPasswordByEmail:(NSString *)email action:(RSDoneAction)action {
-//    [[self postAssemble:@"findPasswordByEmail" dict:@{@"email": email}] performResult:^(NSInteger code, id result, NSError *error) {
+//    [[self postAssemble:@"findPasswordByEmail" dict:@{@"email": email}] perfo1rmResult:^(NSInteger code, id result, NSError *error) {
 //        action(error);
 //    }];
 }
+
+
++ (void)checkEmail:(NSString *)email action:(void (^)(BOOL success, NSError *error))action {
+    TYAccountDao *accountDao = [TYAccountDao sharedDao];
+    [accountDao selectAccountWithEmail:email action:^(TYAccount *account) {
+        if (account) {
+            NSError *error = [NSError errorWithDomain:@"registerError" code:1 userInfo:@{NSLocalizedDescriptionKey: @"已经被注册"}];
+            action(NO, error);
+        } else {
+            action(YES, nil);
+        }
+    }];
+}
+
 
 @end

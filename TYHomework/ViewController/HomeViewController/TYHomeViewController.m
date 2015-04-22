@@ -9,6 +9,7 @@
 #import "TYHomeViewController.h"
 #import <VCTransitionsLibrary/CEBaseInteractionController.h>
 #import "TYTabbarView.h"
+#import "TYViewControllerLoader.h"
 
 @interface TYHomeViewController () <TYTabbarViewDelegate>
 @property (weak, nonatomic) IBOutlet TYTabbarView *tabbarView;
@@ -29,10 +30,14 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
 }
 
 - (IBAction)pressedRecorderNoteBtn:(UIButton *)sender {
+    UIViewController *VC = [[TYViewControllerLoader noteStoryboard] instantiateInitialViewController];
+    [self presentViewController:VC animated:YES completion:^{
+        
+    }];
 }
 
 - (IBAction)pressedRecorderVideoBtn:(UIButton *)sender {

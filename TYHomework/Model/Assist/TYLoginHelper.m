@@ -8,6 +8,7 @@
 
 #import "TYLoginHelper.h"
 #import "TYAccountAccess.h"
+#import "TYShareStorage.h"
 
 @implementation TYLoginHelper
 + (void)loginWithEmail:(NSString *)email password:(NSString *)password action:(RSAccountAction)action {
@@ -19,13 +20,15 @@
                     [RSProgressHUD showErrorWithStatus:@"邮箱或密码错误"];
                 });
                 action(nil, error);
+                [RSProgressHUD dismiss];
                 return ;
             }
             if (account) {
-//                [[TYShareStorage sharedStorage] setupCacheStorageIfNecessary];
-//                [[RSSharedStorage sharedStorage] synchronize];
+                [[TYShareStorage shareStorage] setupCacheStorageIfNecessary];
+                [[TYShareStorage shareStorage] synchronize];
             }
             action(account, error);
+            [RSProgressHUD dismiss];
         }];
     });
 }

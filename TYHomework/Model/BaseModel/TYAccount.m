@@ -7,9 +7,11 @@
 //
 
 #import "TYAccount.h"
+#import <libkern/OSAtomic.h>
 
 static TYAccount *__account = nil;
-
+static OSSpinLock __dispatchTokenLock = OS_SPINLOCK_INIT;
+static dispatch_once_t __onceToken;
 
 @implementation TYAccount
 
@@ -19,6 +21,15 @@ static TYAccount *__account = nil;
         __account = nil;
     });
     return __account;
+}
+
++ (instancetype)reloadAccount:(TYAccount *)account {
+    TYAccount *t = nil;
+    OSSpinLockLock(&__dispatchTokenLock);
+    __onceToken = 0;
+    t = [self setCurrentAccount:account];
+    OSSpinLockUnlock(&__dispatchTokenLock);
+    return t;
 }
 
 //- (instancetype)initWithName:(NSString *)name ID:(long long)ID password:(NSString *)password profileIamgeURL:(NSString *)profileImageURL introduction:(NSString *)introduction {
@@ -31,8 +42,11 @@ static TYAccount *__account = nil;
 //    return self;
 //}
 
-- (void)setCurrentAccount:(TYAccount *)account {
+
+
++ (instancetype)setCurrentAccount:(TYAccount *)account {
     __account = account;
+    return __account;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {

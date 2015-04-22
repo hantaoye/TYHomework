@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-CRNavigationController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CTAssetsPickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F0EC88CE3438BE69BE2CEE3</key>
+		<key>0329955D11981D187CAB6449</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F5AA52B9DA2CB1D198BDA5D</key>
+		<key>147B928553644F7D82D2F2D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AB4109EFA590BB76E7C3CB5</key>
+		<key>18304194C687D09FCDCABE0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D08430133083A0B52AF50D6</key>
+		<key>1DE4AF1177503370ADE147B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42F9659F943F6E524DF0A01A</key>
+		<key>64F4CB36A8D3C5D1E1536B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B458DDCDFD0839441A9A4A0E</key>
+		<key>9D5EB64A3C99A54AD433352B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7F64B4DD97E08C1C850504E</key>
+		<key>AC48FA9BBD34D2389FCBC7BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D68B0AB022BDF486B86B9804</key>
+		<key>B42E88819DBEDF747741CA3A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE2663BA8A22134600FA1D5C</key>
+		<key>DC270FE05A7F7475D4571D0E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA499EE51256C1FB4A902778</key>
 		<dict>
 			<key>primary</key>
 			<true/>

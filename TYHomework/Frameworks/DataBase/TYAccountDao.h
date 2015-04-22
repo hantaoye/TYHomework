@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TYAccountDao : NSObject
+@class TYDatabaseConnector;
+@interface TYAccountDao : NSObject <NSCoding>
+//- (void)getCurrentAccount;
+- (instancetype)initWithConnector:(TYDatabaseConnector *)dataBaseConnector;
+
++ (instancetype)sharedDao;
+
+- (void)selectAccountWithEmail:(NSString *)email password:(NSString *)password action:(void(^)(TYAccount *account))action;
+
+- (void)insertAccountWithEmail:(NSString *)email password:(NSString *)password name:(NSString *)name avatar:(NSString *)avatar action:(void (^)(TYAccount *))action;
+
+- (void)selectAccountWithEmail:(NSString *)email action:(void(^)(TYAccount *account))action;
+
+- (BOOL)updateAccountWithAccountEmail:(NSString *)email account:(TYAccount *)account;
 
 @end

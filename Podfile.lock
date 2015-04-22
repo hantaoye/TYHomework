@@ -1,4 +1,5 @@
 PODS:
+  - CRNavigationController (1.1)
   - CTAssetsPickerController (2.8.1)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
@@ -15,6 +16,7 @@ PODS:
   - VCTransitionsLibrary (1.5.0)
 
 DEPENDENCIES:
+  - CRNavigationController
   - CTAssetsPickerController (~> 2.8.0)
   - FMDB
   - MJExtension
@@ -25,6 +27,7 @@ DEPENDENCIES:
   - VCTransitionsLibrary
 
 SPEC CHECKSUMS:
+  CRNavigationController: 49782af549884745f682107bcc06c2415ba3613a
   CTAssetsPickerController: 4700427ec701586f5394f52f4d6fe22779ac842d
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   MJExtension: 62af61e1a53da0a244c3ae3aff415159bcbd0f0b

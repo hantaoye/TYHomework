@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *name;//用户名
 @property (assign, nonatomic) NSInteger age;
 
-@property (nonatomic, copy) NSString *account;
+@property (nonatomic, copy) NSString *email;
 
 @property (nonatomic, copy) NSString *password;
 
@@ -37,6 +37,7 @@
 
 
 + (instancetype)currentAccount;
++ (instancetype)reloadAccount:(TYAccount *)account;
 
 - (instancetype)initWithName:(NSString *)name ID:(long long)ID password:(NSString *)password profileIamgeURL:(NSString *)profileImageURL introduction:(NSString *)introduction;
 @end

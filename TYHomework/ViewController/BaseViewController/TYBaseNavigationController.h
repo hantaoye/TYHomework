@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RSDelaySegue.h"
 @interface TYBaseNavigationController : UINavigationController
+@property (strong, nonatomic) RSDelaySegue *delaySegue;
+
 
 @end

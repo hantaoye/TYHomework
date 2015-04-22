@@ -10,12 +10,12 @@
 #import "TYHomeViewController.h"
 #import "TYWelcomeViewController.h"
 #import "TYLoginViewController.h"
+#import "TYDrawViewController.h"
 
 @implementation TYViewControllerLoader
 
 + (void)loadRootVC:(UIViewController *)rootVC {
     if (!rootVC) return;
-    
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     if (![NSThread isMainThread]) {
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -29,7 +29,7 @@
 }
 
 + (void)loadMainEntry {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"TYHomeViewController" bundle:nil];
     [self loadRootVC:[mainStoryboard instantiateInitialViewController]];
 }
 
@@ -43,4 +43,61 @@
 }
 
 
+
++ (UIStoryboard *)welcomeStoryboard {
+    static UIStoryboard *stoyrboard = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        stoyrboard = [UIStoryboard storyboardWithName:@"WelcomeViewController" bundle:nil];
+    });
+    return stoyrboard;
+}
+
++ (UIStoryboard *)homeStoryboard {
+    static UIStoryboard *stoyrboard = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        stoyrboard = [UIStoryboard storyboardWithName:@"TYHomeViewController" bundle:nil];
+    });
+    return stoyrboard;
+}
++ (UIStoryboard *)registerStoryboard {
+    static UIStoryboard *stoyrboard = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        stoyrboard = [UIStoryboard storyboardWithName:@"RSRegisterViewController" bundle:nil];
+    });
+    return stoyrboard;
+}
+
++ (UIStoryboard *)drawStoryboard {
+    static UIStoryboard *stoyrboard = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        stoyrboard = [UIStoryboard storyboardWithName:@"TYDrawViewController" bundle:nil];
+    });
+    return stoyrboard;
+}
+
++ (UIStoryboard *)videoStoryboard {
+    static UIStoryboard *stoyrboard = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        stoyrboard = [UIStoryboard storyboardWithName:@"RSTrackViewController" bundle:nil];
+    });
+    return stoyrboard;
+}
+
++ (UIStoryboard *)noteStoryboard {
+    static UIStoryboard *stoyrboard = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        stoyrboard = [UIStoryboard storyboardWithName:@"NoteViewController" bundle:nil];
+    });
+    return stoyrboard;
+}
+
+- (TYDrawViewController *)drawViewController {
+    return [[TYViewControllerLoader drawStoryboard] instantiateViewControllerWithIdentifier:@"drawViewController"];
+}
 @end

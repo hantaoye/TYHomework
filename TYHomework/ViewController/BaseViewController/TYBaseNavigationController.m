@@ -11,7 +11,7 @@
 #import <VCTransitionsLibrary/CEBaseInteractionController.h>
 #import <VCTransitionsLibrary/CEReversibleAnimationController.h>
 
-@interface TYBaseNavigationController () <UINavigationControllerDelegate>
+@interface TYBaseNavigationController () <UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @end
 
@@ -21,6 +21,7 @@
     [super viewDidLoad];
     UIColor *tintColor = [UIColor colorWithRed:42.0 / 255 green:184.0 / 255 blue:94.0 / 255 alpha:1.0];
     [[self navigationBar] setBarTintColor:tintColor];
+    self.delegate = self;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -53,5 +54,37 @@
     return AppDelegateAccessor.navigationControllerInteractionController && AppDelegateAccessor.navigationControllerInteractionController.interactionInProgress ? AppDelegateAccessor.navigationControllerInteractionController : nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (_delaySegue) {
+        NSLog(@"root tabbar vc %@", NSStringFromSelector(_cmd));
+        [_delaySegue performWithCompletion:^{
+            if ([_delaySegue completion]) {
+                [_delaySegue completion]();
+            }
+            _delaySegue = nil;
+        }];
+    }
+}
 
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    
+    if (AppDelegateAccessor.settingsInteractionController) {
+        [AppDelegateAccessor.settingsInteractionController wireToViewController:presented forOperation:CEInteractionOperationDismiss];
+    }
+    
+    AppDelegateAccessor.settingsAnimationController.reverse = NO;
+    return AppDelegateAccessor.settingsAnimationController;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    AppDelegateAccessor.settingsAnimationController.reverse = YES;
+    return AppDelegateAccessor.settingsAnimationController;
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator {
+    return AppDelegateAccessor.settingsInteractionController && AppDelegateAccessor.settingsInteractionController.interactionInProgress ? AppDelegateAccessor.settingsInteractionController : nil;
+}
 @end

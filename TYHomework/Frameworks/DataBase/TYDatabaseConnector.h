@@ -17,6 +17,7 @@
 - (instancetype)initWithName:(NSString *)name;
 - (instancetype)initWithPath:(NSString *)path name:(NSString *)name;
 
+//见表
 - (void)executeStatements:(NSString *)sql;
 
 - (void)updateWithAction:(void (^)(BOOL success))action SQL:(NSString *)sql,...;

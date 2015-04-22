@@ -156,6 +156,8 @@
     [TYLoginHelper loginWithEmail:_emailTextField.text password:_passwordTextField.text action:^(TYAccount *account, NSError *error) {
         if (account != nil) {
             [TYViewControllerLoader loadMainEntry];
+        } else {
+            [RSProgressHUD showErrorWithStatus:error.localizedDescription];
         }
     }];
 }

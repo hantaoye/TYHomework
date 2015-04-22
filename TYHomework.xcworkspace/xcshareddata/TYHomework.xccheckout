@@ -10,6 +10,8 @@
 	<string>TYHomework</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>38325D3FD77EF508E26F9958F64171C43BA8DB18</key>
+		<string>https://github.com/Renyuxian/FITogether.git</string>
 		<key>5D5FC685159553F3175E9A8BE24249F358D43017</key>
 		<string>https://github.com/Han113122/TYHomework.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>TYHomework.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>38325D3FD77EF508E26F9958F64171C43BA8DB18</key>
+		<string>../../SourceCache/Work/FITogether</string>
 		<key>5D5FC685159553F3175E9A8BE24249F358D43017</key>
 		<string>..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>5D5FC685159553F3175E9A8BE24249F358D43017</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>38325D3FD77EF508E26F9958F64171C43BA8DB18</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FITogether</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -43,5 +43,7 @@
 
 - (instancetype)compress:(CGFloat)compression;
 
+- (NSString *)coachImage;
+
 + (void)latestImageFromAssetsLibrary:(void (^)(UIImage *image, NSError *error))hanlder;
 @end

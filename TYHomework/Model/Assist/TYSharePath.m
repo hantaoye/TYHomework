@@ -20,13 +20,20 @@
     return fullPath;
 }
 
-+ (NSString *)getAccountDateBasePath {
++ (NSString *)getAccountDataBasePath {
     NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:TYStoragePathComponent];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
     }
-    NSString *fullPath = [path stringByAppendingPathComponent:@"account.db"];
-    return fullPath;
+//    NSString *fullPath = [path stringByAppendingPathComponent:@"account.db"];
+    return path;
 }
 
++ (NSString *)getNoteDataBasePath {
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:TYStoragePathComponent];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return path;
+}
 @end

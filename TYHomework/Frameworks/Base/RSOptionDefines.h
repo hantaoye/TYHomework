@@ -28,7 +28,7 @@ OPTIONS(concurrentOperationCount, NSUInteger, assign, 15, "the max operation cou
 OPTIONS(operationQueueIsSuspended, BOOL, assign, NO, "operation queue is suspended in default")
 
 //([UIColor colorWithRed:1 green:167 / 255.0 blue:51 / 255.0 alpha:1.0])
-OPTIONS(viewTintColor, UIColor*, strong, nil, "")
+OPTIONS(viewTintColor, UIColor*, strong, ([UIColor colorWithRed:1 green:167 / 255.0 blue:51 / 255.0 alpha:1.0]), "")
 
 OPTIONS(blueprintTableViewBackgroundColor, UIColor*, strong, ([UIColor colorWithRed:1 green:167 / 255.0 blue:51 / 255.0 alpha:1.0]), "")
 OPTIONS(originTableViewBackgroundColor, UIColor *, strong, ([UIColor colorWithRed:252.0 / 255.0f green:150.0 / 255.0f blue:39.0 / 255.0f alpha:1.0]), "")

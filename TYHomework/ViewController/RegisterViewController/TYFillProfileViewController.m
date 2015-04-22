@@ -92,10 +92,10 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
     [_ageDataSource removeAllObjects];
     [_heightDataSource removeAllObjects];
     for (NSInteger i = 18; i < 80; i++) {
-        [_ageDataSource addObject:@(i)];
+        [_ageDataSource addObject:[NSString stringWithFormat:@"%ld", (long)i]];
     }
     for (NSInteger i = 120; i < 240; i++) {
-        [_heightDataSource addObject:@(i)];
+        [_heightDataSource addObject:[NSString stringWithFormat:@"%ld", (long)i]];
     }
     
     NSDictionary *cityDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cities" ofType:@"json"]] options:NSJSONReadingAllowFragments error:nil];
@@ -145,7 +145,6 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
                     }
                     break;
                 }
-                
             }
         }
     }
@@ -161,7 +160,7 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSArray *data =  _pickerViewDataSources[_settingType];
+    NSArray *data = _pickerViewDataSources[_settingType];
     if (_settingType != RSSettingTypeLocation) {
         _activeString = data[row];
         if (_settingType == RSSettingTypeAge) {
@@ -201,7 +200,7 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
             break;
         case RSSettingTypeLocation:
             _pickerDoneLastTime = YES;
-            [self reloadTableViewWithHeight:-1 age:-1 locatoin:[NSString stringWithFormat:@"%@,  %@",_province, _city]];
+            [self reloadTableViewWithHeight:-1 age:-1 locatoin:[NSString stringWithFormat:@"%@  %@",_province, _city]];
             break;
         default:
             break;
@@ -222,7 +221,7 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     NSMutableArray *data = _pickerViewDataSources[_settingType];
-    if (component) {
+    if (!component) {
         return [data count];
     }
     return [_cities count];
@@ -249,7 +248,7 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
     if (age != -1) {
         [_birthdayTextField setText:[NSString stringWithFormat:@"%ld", (long)age]];
     }
-    if (!location) {
+    if (location.length) {
         [_locationTextField setText:location];
     }
 }
@@ -357,7 +356,11 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if ([self selectedView]) {
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (![self selectedView]) {
         _selectedView = [self _createSelectedView];
     }
 }
@@ -365,6 +368,7 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
+
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
@@ -405,12 +409,12 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
         age = 18;
     }
     
-    [TYAccountAccess updateInfo:nil gender:[self isMale] ? 0 : 1 age:age location:_lastLocation locationDescription:[[self locationTextField] text] introduction:[[self personalMessageLabel] text] height:height weight:-1 avatar:[[[self avatarImageView] image] compressPhoto] action:^(TYAccount *account, NSError *error) {
+    [TYAccountAccess updateInfo:nil gender:[self isMale] ? 0 : 1 age:age location:_lastLocation locationDescription:[[self locationTextField] text] introduction:[[self personalMessageLabel] text] height:height weight:-1 avatar:[[[self avatarImageView] image] coachImage] action:^(TYAccount *account, NSError *error) {
         if (error) {
             run(^{
                 [RSProgressHUD showErrorWithStatus:@"更新失败"];
             });
-            return ;
+            return;
         }
         run(^{
             [RSProgressHUD showSuccessWithStatus:@"完成"];

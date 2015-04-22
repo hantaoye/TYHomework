@@ -8,14 +8,17 @@
 
 #import "TYObject.h"
 
-@class TYAccountDao, TYAccount;
+@class TYAccountDao, TYAccount, TYNoteDao, TYNote;
 @interface TYShareStorage : TYObject <NSCoding>
 
 @property (strong, nonatomic) TYAccountDao *accountDao;
 @property (strong, nonatomic) TYAccount *account;
+@property (strong, nonatomic) TYNoteDao *noteDao;
+@property (strong, nonatomic) TYNote *note;
+
 
 - (void)synchronize;
-
+- (void)setupCacheStorageIfNecessary;
 
 + (instancetype)shareStorage;
 

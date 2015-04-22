@@ -189,7 +189,6 @@
     return obj;
 }
 
-
 - (NSMutableArray *)queryObjectsWithRowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ... {
     va_list ap;
     va_start(ap, sql);
@@ -254,4 +253,6 @@
 - (NSError *)lastError {
     return [[_queue database] lastError];
 }
+
+
 @end
