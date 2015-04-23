@@ -97,7 +97,24 @@
     return stoyrboard;
 }
 
-- (TYDrawViewController *)drawViewController {
-    return [[TYViewControllerLoader drawStoryboard] instantiateViewControllerWithIdentifier:@"drawViewController"];
++ (TYDrawViewController *)drawViewController {
+    return [[TYViewControllerLoader drawStoryboard] instantiateViewControllerWithIdentifier:@"TYDrawViewController"];
 }
+
++ (TYCheckNoteViewController *)checkNoteViewController {
+    return [[self noteStoryboard] instantiateViewControllerWithIdentifier:@"TYCheckNoteViewController"];
+}
+
++ (TYAudioViewController *)audioViewController {
+    return [[TYViewControllerLoader drawStoryboard] instantiateViewControllerWithIdentifier:@"TYAudioViewController"];
+}
+
++ (TYWirteNoteViewController *)wirteNoteViewController {
+    return [[TYViewControllerLoader noteStoryboard] instantiateViewControllerWithIdentifier:@"TYWirteNoteViewController"];
+}
+
++ (TYHomeViewController *)homeViewController {
+    return [[TYViewControllerLoader homeStoryboard] instantiateViewControllerWithIdentifier:@"TYHomeViewController"];
+}
+
 @end

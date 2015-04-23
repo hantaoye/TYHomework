@@ -10,6 +10,13 @@
 #import <VCTransitionsLibrary/CEBaseInteractionController.h>
 #import "TYTabbarView.h"
 #import "TYViewControllerLoader.h"
+#import "TYBaseNavigationController.h"
+#import "TYCheckNoteViewController.h"
+#import "TYDrawViewController.h"
+#import "TYAudioViewController.h"
+#import "TYWirteNoteViewController.h"
+#import "TYViewControllerHelp.h"
+#import "UIImage+TY.h"
 
 @interface TYHomeViewController () <TYTabbarViewDelegate>
 @property (weak, nonatomic) IBOutlet TYTabbarView *tabbarView;
@@ -26,6 +33,21 @@
     for (int idx = 0; idx < 3; idx++) {
         [self.tabbarView addTabbarButtonWithTitle:titles[idx] image:[UIImage imageNamed:images[idx]] selectedImage:[UIImage imageNamed:selectedImages[idx]] badgeVaule:0];
     }
+    [self setupSwipeGesture];
+}
+
+- (void)setupSwipeGesture {
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backHomeVC)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeGesture];
+}
+
+- (void)backHomeVC {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,30 +56,51 @@
 }
 
 - (IBAction)pressedRecorderNoteBtn:(UIButton *)sender {
-    UIViewController *VC = [[TYViewControllerLoader noteStoryboard] instantiateInitialViewController];
+    TYWirteNoteViewController *VC = [[TYViewControllerLoader noteStoryboard] instantiateInitialViewController];
+    [self presentViewController:VC animated:YES completion:^{
+    }];
+}
+
+- (IBAction)pressedRecorderVideoBtn:(UIButton *)sender {
+    UIViewController *VC = [[TYViewControllerLoader videoStoryboard] instantiateInitialViewController];
+    [TYViewControllerHelp shareHelp].viewController = self.navigationController;
+    [self presentViewController:VC animated:YES completion:^{
+    }];
+}
+
+- (IBAction)pressedLookUpNoteBtn:(UIButton *)sender {
+    TYCheckNoteViewController *VC = [TYViewControllerLoader checkNoteViewController];
+    [self.navigationController pushViewController:VC animated:YES];
+}
+
+- (IBAction)pressedDrawBtn:(UIButton *)sender {
+    UIViewController *VC = [[TYViewControllerLoader drawStoryboard] instantiateInitialViewController];
     [self presentViewController:VC animated:YES completion:^{
         
     }];
 }
 
-- (IBAction)pressedRecorderVideoBtn:(UIButton *)sender {
-}
-
-- (IBAction)pressedLookUpNoteBtn:(UIButton *)sender {
-}
-
-- (IBAction)pressedDrawBtn:(UIButton *)sender {
-}
-
 - (IBAction)pressedRecorderAudioBtn:(UIButton *)sender {
+    TYAudioViewController *VC = [TYViewControllerLoader audioViewController];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 /**
  *  tabbar的代理方法
  */
 - (void)tabbarView:(TYTabbarView *)tabbar fromBtnIndex:(NSUInteger)fromIndex toBtnIndex:(NSUInteger)toIndex {
+    
 #warning to do
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 
 @end

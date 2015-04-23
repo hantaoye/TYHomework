@@ -19,8 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIColor *tintColor = [UIColor colorWithRed:42.0 / 255 green:184.0 / 255 blue:94.0 / 255 alpha:1.0];
-    [[self navigationBar] setBarTintColor:tintColor];
+//    UIColor *tintColor = [UIColor colorWithRed:42.0 / 255 green:184.0 / 255 blue:94.0 / 255 alpha:1.0];
+//    [[self navigationBar] setBarTintColor:tintColor];
     self.delegate = self;
 }
 
@@ -29,6 +29,11 @@
         [viewController setHidesBottomBarWhenPushed:YES];
     }
     [super pushViewController:viewController animated:animated];
+}
+
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    viewControllerToPresent.transitioningDelegate = self;
+    return [super presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
 - (void)didReceiveMemoryWarning {

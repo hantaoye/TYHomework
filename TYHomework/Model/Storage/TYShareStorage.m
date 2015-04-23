@@ -27,7 +27,6 @@ static NSString *__path = @"pathKey";
 @property (strong, nonatomic) TYDatabaseConnector *accountDBC;
 @property (strong, nonatomic) TYDatabaseConnector *noteDBC;
 
-
 @end
 
 @implementation TYShareStorage
@@ -39,6 +38,7 @@ static NSString *__path = @"pathKey";
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
         _account = [aDecoder decodeObjectForKey:__accountKey];
+        [TYAccount reloadAccount:_account];
         _note = [aDecoder decodeObjectForKey:__noteKey];
         _path = [aDecoder decodeObjectForKey:__path];
         

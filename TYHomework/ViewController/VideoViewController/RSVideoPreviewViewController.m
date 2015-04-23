@@ -13,6 +13,10 @@
 #import "RSVideoTagViewController.h"
 #import "RSProgressHUD.h"
 #import "RSPlayerView.h"
+#import "TYWriteHelp.h"
+#import "TYWirteNoteViewController.h"
+#import "TYViewControllerLoader.h"
+#import "RSVideo.h"
 
 static NSString *RSPhotoGroupName = @"RSPhoto";
 static NSString *RSVideoGroupName = @"RSVideo";
@@ -130,18 +134,37 @@ static NSString *RSVideoGroupName = @"RSVideo";
 }
 
 - (IBAction)addTextAndPush:(UIButton *)sender {
-    [self performSegueWithIdentifier:@"segueForVideoEditTag" sender:self];
+//    [self performSegueWithIdentifier:@"segueForVideoEditTag" sender:self];
+    TYWriteHelp *help = [TYWriteHelp shareWriteHelp];
+    help.asset = _asset;
+    [RSProgressHUD show];
+    [RSVideo generateImage:_asset action:^(UIImage *image, NSError *error) {
+        help.videoImage = image;
+        if (help.isStartWrite) {
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                [RSProgressHUD dismiss];
+            }];
+        } else {
+            [self presentViewController:[[TYViewControllerLoader noteStoryboard] instantiateInitialViewController] animated:YES completion:^{
+                [RSProgressHUD dismiss];
+            }];
+        }
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"segueForVideoEditTag"]) {
-        RSVideoTagViewController *videoTagVC = [segue destinationViewController];
-        videoTagVC.asset = _asset;
-    }
+//    if ([segue.identifier isEqualToString:@"segueForVideoEditTag"]) {
+//        RSVideoTagViewController *videoTagVC = [segue destinationViewController];
+//        videoTagVC.asset = _asset;
+//    }
 }
 
 - (IBAction)didPressedCancelBtn:(UIBarButtonItem *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)dealloc {
+    NSLog(@"+++");
 }
 
 @end

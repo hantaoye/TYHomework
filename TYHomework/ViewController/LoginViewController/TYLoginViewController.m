@@ -30,6 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"letter-paper15"]];
+    
     _gestureEmailTextField = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignFirstResponder)];
     _gesturePasswordTextField = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignFirstResponder)];
     

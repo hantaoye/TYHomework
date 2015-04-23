@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class TYDrawViewController;
+@class TYDrawViewController, TYCheckNoteViewController, TYAudioViewController, TYWirteNoteViewController, TYHomeViewController;
 @interface TYViewControllerLoader : TYObject
 
 + (void)loadResgiterEntry;
@@ -20,6 +20,14 @@
 + (void)layout;
 
 + (TYDrawViewController *)drawViewController;
+
++ (TYCheckNoteViewController *)checkNoteViewController;
+
++ (TYAudioViewController *)audioViewController;
+
++ (TYWirteNoteViewController *)wirteNoteViewController;
+
++ (TYHomeViewController *)homeViewController;
 
 + (UIStoryboard *)welcomeStoryboard;
 

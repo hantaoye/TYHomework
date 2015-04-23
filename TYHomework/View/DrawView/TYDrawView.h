@@ -16,6 +16,9 @@
 
 - (void)save;
 
--(void)changeColorWithRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+- (void)changeColorWithRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+
+- (UIImage *)getDrawImage;
+
 
 @end

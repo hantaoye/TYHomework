@@ -9,10 +9,13 @@
 #import "TYRootHomeViewController.h"
 #import "TYRoundImageView.h"
 #import "TYAnimationController.h"
+#import "TYAccount.h"
+#import "UIImage+TY.h"
 
 @interface TYRootHomeViewController ()
 @property (weak, nonatomic) IBOutlet TYRoundImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 @end
@@ -21,7 +24,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
+    [self setupData];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)setupData {
+    [TYShareStorage shareStorage];
+    TYAccount *account = [TYAccount currentAccount];
+//    assert(account != nil && @"account 为nil");
+    NSData *data = [NSData dataWithContentsOfFile:account.avatarURL];
+    _iconImageView.image = [UIImage imageWithData:data];
+    _welcomeLabel.text = [NSString stringWithFormat:@"欢迎回来: %@", account.name];
+    _nameLabel.text = account.name;
 }
 
 - (void)didReceiveMemoryWarning {

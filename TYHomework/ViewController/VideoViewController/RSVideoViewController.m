@@ -28,6 +28,9 @@
 #import "RSNavigationController.h"
 #import "RSDelaySegue.h"
 #import "TYBaseNavigationController.h"
+#import "TYWriteHelp.h"
+#import "TYViewControllerHelp.h"
+
 
 #define RSiPhone4S ([UIScreen mainScreen].bounds.size.height <= 480)
 #define RSScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -839,11 +842,24 @@
     _recorderPhoto = nil;
     _assets = nil;
     [RSProgressHUD dismiss];
-    TYBaseNavigationController *navVC = (TYBaseNavigationController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
-
-    RSDelaySegue *ds = [RSDelaySegue segueWithViewController:[navVC topViewController] storyboard:sb toViewController:navigationVC];
-    [navVC setDelaySegue:ds];
+    
+//    if ([TYWriteHelp shareWriteHelp].isStartWrite) {
+//       TYWirteNoteViewController *VC = [TYViewControllerLoader wirteNoteViewController];
+//        RSDelaySegue *ds = [RSDelaySegue segueWithViewController:VC storyboard:sb toViewController:navigationVC];
+//        [VC setDelaySegue:ds];
+//        [ds setDelayObjectPlaceholder:self];
+//    } else {
+//        TYHomeViewController *VC = [TYViewControllerLoader homeViewController];
+//        RSDelaySegue *ds = [RSDelaySegue segueWithViewController:VC storyboard:sb toViewController:navigationVC];
+//        [VC setDelaySegue:ds];
+//        [ds setDelayObjectPlaceholder:self];
+//    }
+    
+    TYBaseNavigationController *VC = (TYBaseNavigationController *)[TYViewControllerHelp shareHelp].viewController;
+    RSDelaySegue *ds = [RSDelaySegue segueWithViewController:VC storyboard:sb toViewController:navigationVC];
+    [VC setDelaySegue:ds];
     [ds setDelayObjectPlaceholder:self];
+    
     NSLog(@"dismiss %@", NSStringFromSelector(_cmd));
     [self dismissViewControllerAnimated:YES completion:nil];
 //    UIViewController *vc = [tabbarVC selectedViewController];

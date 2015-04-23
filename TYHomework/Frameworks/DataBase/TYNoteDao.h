@@ -22,6 +22,10 @@
 
 - (void)insertNoteWithID:(NSInteger)ID title:(NSString *)title desc:(NSString *)desc videoPagth:(NSString *)videoPath imageURL:(NSString *)imageURL drawImageURL:(NSString *)drawImageURL audioURL:(NSString *)audioURL action:(void (^)(TYNote *))action;
 
+- (BOOL)deleteWithNoteTitle:(NSString *)title;
+
+- (BOOL)deleteWithNoteID:(NSInteger)ID;
+
 - (BOOL)updateNoteWithNoteTitle:(NSString *)title note:(TYNote *)note;
 - (BOOL)updateNoteWithNoteID:(NSInteger)ID note:(TYNote *)note;
 

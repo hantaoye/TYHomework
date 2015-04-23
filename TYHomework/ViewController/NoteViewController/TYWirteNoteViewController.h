@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class TYNote;
 @interface TYWirteNoteViewController : UIViewController
+@property (strong, nonatomic) TYNote *note;
 
 @end

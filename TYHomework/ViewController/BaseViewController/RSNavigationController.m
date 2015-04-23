@@ -18,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _barTintColor = _barTintColor ? : [[RSOptions option] blueprintTableViewBackgroundColor];
-    [[self navigationBar] setBarTintColor:_barTintColor];
+//    _barTintColor = _barTintColor ? : [[RSOptions option] blueprintTableViewBackgroundColor];
+//    [[self navigationBar] setBarTintColor:_barTintColor];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -70,7 +70,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self navigationBar] setTintColor:[[RSOptions option] viewTintColor]];
+//    [[self navigationBar] setTintColor:[[RSOptions option] viewTintColor]];
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     [[self navigationBar] setTitleTextAttributes:navbarTitleTextAttributes];
 //    UIColor *tintColor = [UIColor colorWithRed:42.0 / 255 green:184.0 / 255 blue:94.0 / 255 alpha:1.0];
@@ -154,7 +154,7 @@
 @implementation RSClassHomeNavigationContorller
 
 + (void)load {
-    [[UIBarButtonItem appearance] setTintColor:[[RSOptions option] viewTintColor]];
+//    [[UIBarButtonItem appearance] setTintColor:[[RSOptions option] viewTintColor]];
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName: [[RSOptions option] viewTintColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     

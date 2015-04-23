@@ -20,6 +20,22 @@
 
 @implementation TYDrawView
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        self.layer.masksToBounds = YES;
+        self.clipsToBounds = YES;
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.layer.masksToBounds = YES;
+        self.clipsToBounds = YES;
+    }
+    return self;
+}
+
 - (NSMutableArray *)allTouches
 {
     if (nil == _allTouches) {
@@ -51,6 +67,11 @@
 
 - (void)save
 {
+   UIImage *image = [self getDrawImage];
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (UIImage *)getDrawImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -59,9 +80,7 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
-    
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    
+    return image;
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -149,7 +168,6 @@
         path.lineJoinStyle = kCGLineJoinRound;
         [path stroke];
     }
-    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

@@ -7,8 +7,10 @@
 //
 
 #import "TYBaseViewController.h"
+#import "RSDelaySegue.h"
 
 @interface TYHomeViewController : TYBaseViewController
 //- (void)selectedControllerWithIndex:(NSUInteger)index;
+@property (strong, nonatomic) RSDelaySegue *delaySegue;
 
 @end

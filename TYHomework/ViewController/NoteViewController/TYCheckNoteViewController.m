@@ -9,6 +9,8 @@
 #import "TYCheckNoteViewController.h"
 #import "TYNote.h"
 #import "TYNoteDao.h"
+#import "TYWirteNoteViewController.h"
+#import "UIImage+TY.h"
 
 static NSString *__identifier = @"cell";
 
@@ -17,13 +19,17 @@ static NSString *__identifier = @"cell";
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
 
+@property (strong, nonatomic) TYNote *_note;
+
+
 @end
 
 @implementation TYCheckNoteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupData];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage resizedImageWithName:@"letter-paper5"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,10 +54,23 @@ static NSString *__identifier = @"cell";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    __note = _dataArray[indexPath.row];
+    [self performSegueWithIdentifier:@"segueForWriteNoteVC" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"segueForWriteNoteVC"]) {
+        TYWirteNoteViewController *VC = segue.destinationViewController;
+        VC.note = __note;
+    }
+}
+
 - (void)setupData {
     _dataArray = [NSMutableArray array];
     NSArray *array = [[TYNoteDao sharedDao] getAllNotes];
     [_dataArray addObjectsFromArray:array];
+    [self.tableView reloadData];
 }
 
 #pragma mark searchBar 代理

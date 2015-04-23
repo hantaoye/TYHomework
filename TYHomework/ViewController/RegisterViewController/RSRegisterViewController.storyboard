@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_background" translatesAutoresizingMaskIntoConstraints="NO" id="Jjv-1Z-3rY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="letter-paper7" translatesAutoresizingMaskIntoConstraints="NO" id="Jjv-1Z-3rY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmU-Uh-twI">
-                                <rect key="frame" x="180" y="440" width="100" height="18"/>
+                                <rect key="frame" x="180" y="364" width="100" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Tua-O4-lT8"/>
                                 </constraints>
@@ -35,36 +35,8 @@
                                     <segue destination="Vjb-RM-WVu" kind="show" id="5BW-J3-3rc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTS-VX-S6V">
-                                <rect key="frame" x="76" y="380" width="448" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Bnd-2S-7uq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="微博账号登录" image="button_sina" backgroundImage="button_login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="weiboLoginButtonPressed:" destination="CZs-mq-v1n" eventType="touchUpInside" id="oYl-aa-Xvk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1d-ZX-XsQ">
-                                <rect key="frame" x="76" y="330" width="448" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="mTZ-Hg-TBs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="微信账号登录" image="button_weixin" backgroundImage="button_login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="wechatLoginButtonPressed:" destination="CZs-mq-v1n" eventType="touchUpInside" id="ro2-58-D1e"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5O8-wU-fVm">
-                                <rect key="frame" x="320" y="440" width="100" height="18"/>
+                                <rect key="frame" x="320" y="364" width="100" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="QY1-gT-Hpg"/>
                                 </constraints>
@@ -83,25 +55,21 @@
                             <constraint firstItem="Jjv-1Z-3rY" firstAttribute="leading" secondItem="YpC-Se-YNW" secondAttribute="leading" id="2fW-rq-Vxc"/>
                             <constraint firstItem="cmU-Uh-twI" firstAttribute="centerY" secondItem="5O8-wU-fVm" secondAttribute="centerY" id="3c3-Mw-bKk"/>
                             <constraint firstAttribute="centerX" secondItem="5O8-wU-fVm" secondAttribute="leading" constant="-20" id="3ki-e3-uxU"/>
-                            <constraint firstItem="Jjv-1Z-3rY" firstAttribute="centerX" secondItem="A1d-ZX-XsQ" secondAttribute="centerX" id="7hL-Pm-uOG"/>
-                            <constraint firstItem="A1d-ZX-XsQ" firstAttribute="leading" secondItem="YpC-Se-YNW" secondAttribute="leadingMargin" constant="60" id="AcJ-6B-kVx"/>
-                            <constraint firstItem="5O8-wU-fVm" firstAttribute="top" secondItem="YTS-VX-S6V" secondAttribute="bottom" constant="20" id="CYM-r7-zOY"/>
+                            <constraint firstItem="5O8-wU-fVm" firstAttribute="leading" secondItem="Jjv-1Z-3rY" secondAttribute="trailing" id="4rC-X4-lrg"/>
+                            <constraint firstAttribute="trailing" secondItem="Jjv-1Z-3rY" secondAttribute="trailing" id="LUk-e7-y1A"/>
                             <constraint firstItem="Jjv-1Z-3rY" firstAttribute="top" secondItem="YpC-Se-YNW" secondAttribute="topMargin" id="O71-FU-ANv"/>
                             <constraint firstAttribute="centerX" secondItem="cmU-Uh-twI" secondAttribute="trailing" constant="20" id="R4z-OU-4W3"/>
-                            <constraint firstAttribute="centerX" secondItem="YTS-VX-S6V" secondAttribute="centerX" id="THm-AF-3U7"/>
-                            <constraint firstItem="YTS-VX-S6V" firstAttribute="width" secondItem="A1d-ZX-XsQ" secondAttribute="width" id="atd-CO-Mai"/>
                             <constraint firstItem="cmU-Uh-twI" firstAttribute="top" secondItem="5O8-wU-fVm" secondAttribute="top" id="dBp-hC-lK0"/>
-                            <constraint firstAttribute="centerY" secondItem="A1d-ZX-XsQ" secondAttribute="centerY" constant="-50" id="lXM-gA-lu5"/>
+                            <constraint firstItem="cmU-Uh-twI" firstAttribute="top" secondItem="t3S-uI-vKU" secondAttribute="bottom" constant="300" id="gDl-MF-bjU"/>
                             <constraint firstItem="UMA-AB-l8l" firstAttribute="top" secondItem="Jjv-1Z-3rY" secondAttribute="bottom" id="mXY-zU-gJB"/>
-                            <constraint firstAttribute="centerX" secondItem="A1d-ZX-XsQ" secondAttribute="centerX" id="pZo-SX-dOl"/>
-                            <constraint firstItem="YTS-VX-S6V" firstAttribute="top" secondItem="A1d-ZX-XsQ" secondAttribute="bottom" constant="10" id="sSQ-7C-fm9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4rC-X4-lrg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="HXs-D1-Pee"/>
-                    <connections>
-                        <outlet property="wechatLoginButton" destination="A1d-ZX-XsQ" id="uZr-1M-fB8"/>
-                        <outlet property="weiboLoginButton" destination="YTS-VX-S6V" id="ObW-9l-2rs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOv-7D-ISp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -895,10 +863,7 @@
         <image name="button_checkmark" width="22" height="22"/>
         <image name="button_checkmark_selected" width="22" height="22"/>
         <image name="button_email" width="14" height="10"/>
-        <image name="button_login" width="231" height="40"/>
-        <image name="button_sina" width="20" height="16"/>
-        <image name="button_weixin" width="20" height="16"/>
+        <image name="letter-paper7" width="320" height="416"/>
         <image name="login_userIcon" width="85" height="85"/>
-        <image name="register_background" width="320" height="480"/>
     </resources>
 </document>

@@ -15,6 +15,9 @@
 #import "UIImage+TY.h"
 #import "RSProgressHUD.h"
 #import "TYDebugLog.h"
+#import "TYWriteHelp.h"
+#import "TYWirteNoteViewController.h"
+#import "TYViewControllerLoader.h"
 
 @interface RSTrackEditPhotoViewController () <ScrollButtonDelegate, RSImageEditViewDelegate>
 @property (assign, nonatomic) BOOL initialized;
@@ -113,7 +116,7 @@
                 [images addObject:result];
                 editView.imageView.frame = glView.frame;
                 editView.imageView.image = result;
-
+                
                 glView.hidden = YES;
             }
         }
@@ -129,7 +132,17 @@
                 glView.hidden = NO;
             }
         }
-        [self performSegueWithIdentifier:@"segueForEditTag" sender:self];
+        [TYWriteHelp shareWriteHelp].image = _croppedImage;
+        if ([TYWriteHelp shareWriteHelp].isStartWrite) {
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        } else {
+            [self presentViewController:[[TYViewControllerLoader noteStoryboard] instantiateInitialViewController] animated:YES completion:^{
+                
+            }];
+        }
+//        [self performSegueWithIdentifier:@"segueForEditTag" sender:self];
         [RSProgressHUD dismiss];
     });
 }
@@ -165,9 +178,9 @@
         [glView setFilterImage:image];
         [glView processViewWithImage:image andCamType:0 andBlurImage:nil];
     }
-//    [_currentEditView.imageView swapBuffers];
-//    [_currentEditView.imageView processViewWithImage:[_currentEditView image] andCamType:0 andBlurImage:nil];
-//    NSInteger type = _currentEditView.imageView.filterType;
+    //    [_currentEditView.imageView swapBuffers];
+    //    [_currentEditView.imageView processViewWithImage:[_currentEditView image] andCamType:0 andBlurImage:nil];
+    //    NSInteger type = _currentEditView.imageView.filterType;
 }
 
 - (void)filterChangedWith:(int)filterType {
@@ -212,11 +225,13 @@
     [super viewDidAppear:animated];
     [self.view layoutIfNeeded];
     [self setupData];
+//    [TalkingData beginTrack:[self class]];
     [RSProgressHUD dismiss];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+//    [TalkingData endTrack:[self class]];
     [RSProgressHUD dismiss];
 }
 
@@ -247,7 +262,7 @@
                                [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:styleName]];
     
     [self selectBorderWithDict:styleDict];
-
+    
 }
 
 - (void)selectBorderWithDict:(NSDictionary *)styleDict {

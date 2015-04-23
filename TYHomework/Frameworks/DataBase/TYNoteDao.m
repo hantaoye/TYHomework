@@ -37,6 +37,8 @@ static NSString *RSNoteSQLCheckTitle = @"select id, note from table_note where t
 
 static NSString *RSNoteSQLMultiGetNote = @"select id, note from table_note where id in (%@)";
 static NSString *RSNoteSQLMultiGetNotesTitle = @"select id, note from table_note where title like ? order by id";
+static NSString *TYNoteSQLDeleteNoteTitle = @"delete from table_note where title = ?";
+static NSString *TYNoteSQLDeleteNoteID = @"delete from table_note where id = ?";
 
 
 @interface TYNoteDao ()
@@ -93,7 +95,8 @@ static NSString *RSNoteSQLMultiGetNotesTitle = @"select id, note from table_note
     formatter.dateFormat = @"yyyy-MM-dd";
     NSString *timestamp = [formatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:0]];
     note.timestamp = timestamp;
-    if ([self.connector updateWithSQL:RSNoteSQLAddNoteWithName, title, desc, videoPath, imageURL, note]) {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:note];
+    if ([self.connector updateWithSQL:RSNoteSQLAddNoteWithName, title, desc, videoPath, imageURL, data]) {
         action(note);
     } else {
         action(nil);
@@ -111,5 +114,14 @@ static NSString *RSNoteSQLMultiGetNotesTitle = @"select id, note from table_note
 - (NSArray *)getAllNotes {
    return [self.connector queryObjectsWithRowMapper:[[TYNoteMapper alloc] init] SQL:RSNoteSQLAllNote];
 }
+
+- (BOOL)deleteWithNoteTitle:(NSString *)title {
+    return [self.connector updateWithSQL:TYNoteSQLDeleteNoteTitle, title];
+}
+
+- (BOOL)deleteWithNoteID:(NSInteger)ID {
+    return [self.connector updateWithSQL:TYNoteSQLDeleteNoteID, ID];
+}
+
 
 @end

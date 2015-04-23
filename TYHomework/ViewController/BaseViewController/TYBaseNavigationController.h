@@ -11,5 +11,4 @@
 @interface TYBaseNavigationController : UINavigationController
 @property (strong, nonatomic) RSDelaySegue *delaySegue;
 
-
 @end

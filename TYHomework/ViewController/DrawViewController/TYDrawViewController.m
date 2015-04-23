@@ -8,9 +8,12 @@
 
 #import "TYDrawViewController.h"
 #import "TYDrawView.h"
+#import "TYWriteHelp.h"
+#import "TYViewControllerLoader.h"
 
 @interface TYDrawViewController ()
 @property (weak, nonatomic) IBOutlet TYDrawView *drawView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 
 @end
 
@@ -21,11 +24,28 @@
     
     [self.drawView changeColorWithRed:sender.value green:sender.value blue:sender.value];
 }
+- (IBAction)pressedNextButton:(UIBarButtonItem *)sender {
+    TYWriteHelp *help = [TYWriteHelp shareWriteHelp];
+    UIImage *image = [self.drawView getDrawImage];
+    help.drawImage = image;
+    if (help.isStartWrite) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            [RSProgressHUD dismiss];
+        }];
+    } else {
+        [self presentViewController:[[TYViewControllerLoader noteStoryboard] instantiateInitialViewController] animated:YES completion:^{
+            [RSProgressHUD dismiss];
+        }];
+    }
+}
+- (IBAction)pressedBackButton:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,14 +56,15 @@
 
 - (IBAction)clear {
     [self.drawView clear];
-    
 }
 
 - (IBAction)back {
     [self.drawView back];
 }
 
-- (IBAction)save {
+- (IBAction)save:(UIButton *)button {
     [self.drawView save];
+    button.enabled = NO;
+    [RSProgressHUD showSuccessWithStatus:@"保存成功"];
 }
 @end
