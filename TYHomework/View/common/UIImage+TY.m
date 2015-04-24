@@ -222,20 +222,5 @@
     }];
 }
 
-- (NSString *)coachImage {
-    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"image"];
-   
-    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyyMMddHHmmss";
-    NSString *nowTimeStr = [formatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:0]];
-    path = [path stringByAppendingPathComponent:nowTimeStr];
-
-    NSData *data = UIImageJPEGRepresentation(self, 0.5);
-    [data writeToFile:path atomically:YES];
-    return path;
-}
 
 @end

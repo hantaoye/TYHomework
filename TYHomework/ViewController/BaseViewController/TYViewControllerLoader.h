@@ -17,6 +17,8 @@
 
 + (void)loadMainEntry;
 
++ (void)loadWelcomeViewController;
+
 + (void)layout;
 
 + (TYDrawViewController *)drawViewController;

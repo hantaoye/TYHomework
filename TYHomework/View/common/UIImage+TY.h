@@ -16,7 +16,6 @@
 + (UIImage *)resizedImageWithName:(NSString *)name;
 
 + (UIImage *)resizedImageWithName:(NSString *)name left:(CGFloat)left top:(CGFloat)top;
-
 //水印
 + (instancetype)waterWithBackImageName:(NSString *)backImageName waterImageName:(NSString *)waterImageName;
 
@@ -42,8 +41,6 @@
 - (NSData *)compressPhoto;
 
 - (instancetype)compress:(CGFloat)compression;
-
-- (NSString *)coachImage;
 
 + (void)latestImageFromAssetsLibrary:(void (^)(UIImage *image, NSError *error))hanlder;
 @end

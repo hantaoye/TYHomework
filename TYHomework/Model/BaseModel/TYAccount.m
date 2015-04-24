@@ -6,6 +6,16 @@
 //  Copyright (c) 2015年 RenYuXian. All rights reserved.
 //
 
+static NSString *__userIDKey = @"id";
+static NSString *__nameKey = @"user_name";
+static NSString *__genderKey = @"gender";
+static NSString *__avatarURLStringKey = @"avatar";
+static NSString *__passwordKey = @"password";
+static NSString *__cardCountKey = @"cards";
+static NSString *__continueCardsKey = @"continue_cards";
+static NSString *__roleIDKey = @"role_id";
+
+
 #import "TYAccount.h"
 #import <libkern/OSAtomic.h>
 
@@ -16,8 +26,7 @@ static dispatch_once_t __onceToken;
 @implementation TYAccount
 
 + (instancetype)currentAccount {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&__onceToken, ^{
         __account = nil;
     });
     return __account;
@@ -45,19 +54,30 @@ static dispatch_once_t __onceToken;
 
 
 + (instancetype)setCurrentAccount:(TYAccount *)account {
-    __account = account;
+    dispatch_once(&__onceToken, ^{
+        __account = account;
+    });
     return __account;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
         [self decode:aDecoder];
+//        _name = [aDecoder decodeObjectForKey:__nameKey];
+//        _gender = [aDecoder decodeIntegerForKey:__genderKey];
+//        _avatarURL = [aDecoder decodeObjectForKey:__avatarURLStringKey];
+//        _password = [aDecoder decodeObjectForKey:__passwordKey];
+
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
+//    [encoder encodeObject:_name forKey:__nameKey];
+//    [encoder encodeInteger:_gender forKey:__genderKey];
+//    [encoder encodeObject:_avatarURL forKey:__avatarURLStringKey];
+//    [encoder encodeObject:_password forKey:__passwordKey];
     [self encode:encoder];
 }
 

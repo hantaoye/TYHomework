@@ -7,6 +7,7 @@
 //
 
 #import "TYWelcomeViewController.h"
+#import "TYViewControllerLoader.h"
 
 @interface TYWelcomeViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -23,7 +24,7 @@
 }
 
 - (void)setupData {
-    NSArray *imageArray = @[@"test1", @"test2", @"test3"];
+    NSArray *imageArray = @[@"letter-paper22", @"letter-paper24", @"letter-paper26"];
     for (int i = 0; i < imageArray.count; i++) {
         NSString *imageName = imageArray[i];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * TYScreenWidth, 0, TYScreenWidth, TYScreenHeight)];
@@ -34,9 +35,10 @@
     
     UIImageView *imageView = [_scrollView.subviews lastObject];
     imageView.userInteractionEnabled = YES;
-    UIButton *nextBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, TYScreenHeight - 150, TYScreenWidth - 200, 50)];
+    UIButton *nextBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, TYScreenHeight / 2, TYScreenWidth - 200, 50)];
     [nextBtn setTitle:@"立即体验" forState:UIControlStateNormal];
-    [nextBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [nextBtn setBackgroundImage:[UIImage imageNamed:@"pdf-footer"] forState:UIControlStateNormal];
     [nextBtn addTarget:self action:@selector(nextVC) forControlEvents:UIControlEventTouchUpInside];
     [imageView addSubview:nextBtn];
     
@@ -46,10 +48,11 @@
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.delegate = self;
+    _scrollView.pagingEnabled = YES;
 }
 
 - (void)nextVC {
-    
+    [TYViewControllerLoader loadResgiterEntry];
 }
 
 #pragma mark -

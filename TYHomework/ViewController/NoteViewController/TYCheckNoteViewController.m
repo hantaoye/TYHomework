@@ -21,7 +21,6 @@ static NSString *__identifier = @"cell";
 
 @property (strong, nonatomic) TYNote *_note;
 
-
 @end
 
 @implementation TYCheckNoteViewController
@@ -73,14 +72,33 @@ static NSString *__identifier = @"cell";
     [self.tableView reloadData];
 }
 
+- (void)updateDataSource:(NSString *)text {
+    if (text.length) {
+        [[TYNoteDao sharedDao] selectNotesWithTitle:text action:^(NSArray *notes) {
+            [_dataArray removeAllObjects];
+            if (notes) {
+                [_dataArray addObjectsFromArray:notes];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }];
+    } else {
+        [_dataArray removeAllObjects];
+        [_dataArray addObjectsFromArray:[[TYNoteDao sharedDao] getAllNotes]];
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark searchBar 代理
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    
+    [self updateDataSource:searchBar.text];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-   
+    searchBar.text = @"";
+    [self updateDataSource:nil];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -88,7 +106,6 @@ static NSString *__identifier = @"cell";
     dispatch_async(dispatch_get_main_queue(), ^{
         [[[self searchDisplayController] searchResultsTableView] reloadData];
     });
-
 }
 
 @end

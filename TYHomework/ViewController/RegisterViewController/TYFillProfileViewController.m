@@ -17,7 +17,7 @@
 #import "TYAccountAccess.h"
 #import "UIImage+TY.h"
 #import "TYViewControllerLoader.h"
-
+#import "TYImageHelper.h"
 
 typedef NS_ENUM(NSInteger, RSSettingType) {
     RSSettingTypeLocation = 0,
@@ -409,7 +409,7 @@ typedef NS_ENUM(NSInteger, RSSettingType) {
         age = 18;
     }
     
-    [TYAccountAccess updateInfo:nil gender:[self isMale] ? 0 : 1 age:age location:_lastLocation locationDescription:[[self locationTextField] text] introduction:[[self personalMessageLabel] text] height:height weight:-1 avatar:[[[self avatarImageView] image] coachImage] action:^(TYAccount *account, NSError *error) {
+    [TYAccountAccess updateInfo:nil gender:[self isMale] ? 0 : 1 age:age location:_lastLocation locationDescription:[[self locationTextField] text] introduction:[[self personalMessageLabel] text] height:height weight:-1 avatar:[TYImageHelper setPhotoImage:self.avatarImageView.image] action:^(TYAccount *account, NSError *error) {
         if (error) {
             run(^{
                 [RSProgressHUD showErrorWithStatus:@"更新失败"];

@@ -72,10 +72,18 @@
                                     <constraint firstAttribute="width" constant="100" id="XRw-Cp-Iqf"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe2-BJ-odz">
+                                <rect key="frame" x="297" y="507" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.88995207095127871" blue="0.71417623794024554" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="lgo-Hj-Wzt" secondAttribute="centerX" id="0Rs-kd-QZu"/>
+                            <constraint firstItem="bxU-wf-h3d" firstAttribute="top" secondItem="Qe2-BJ-odz" secondAttribute="bottom" constant="50" id="3EO-DW-aDr"/>
+                            <constraint firstItem="lgo-Hj-Wzt" firstAttribute="centerX" secondItem="Qe2-BJ-odz" secondAttribute="centerX" id="3Tc-Eb-wch"/>
                             <constraint firstAttribute="centerY" secondItem="los-jV-K4V" secondAttribute="centerY" id="4y1-H0-7fo"/>
                             <constraint firstItem="DIt-1k-5Q9" firstAttribute="centerX" secondItem="KSy-ud-p2o" secondAttribute="centerX" id="6LN-3M-iEn"/>
                             <constraint firstItem="KSy-ud-p2o" firstAttribute="top" secondItem="DIt-1k-5Q9" secondAttribute="bottom" constant="30" id="I87-S8-1Vr"/>
@@ -95,6 +103,7 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="NNZ-8A-mwJ" id="dmI-nr-BIJ"/>
                         <outlet property="iconImageView" destination="DIt-1k-5Q9" id="AD0-NY-Dsd"/>
+                        <outlet property="introdation" destination="Qe2-BJ-odz" id="AEf-2d-duN"/>
                         <outlet property="nameLabel" destination="KSy-ud-p2o" id="Nge-Zo-LKs"/>
                         <outlet property="welcomeLabel" destination="lgo-Hj-Wzt" id="uMx-iJ-s8R"/>
                     </connections>
@@ -139,7 +148,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lER-TS-fAH">
-                                <rect key="frame" x="50" y="190" width="54" height="34"/>
+                                <rect key="frame" x="50" y="175" width="54" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="拍视频">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,7 +175,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd3-Q6-LFM">
-                                <rect key="frame" x="50" y="437" width="36" height="34"/>
+                                <rect key="frame" x="50" y="467" width="36" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="录音">
                                     <color key="titleColor" red="0.35327862369207219" green="0.81227878076587678" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,7 +203,7 @@
                             <constraint firstItem="WCU-ar-mgt" firstAttribute="top" secondItem="wKE-zn-mzU" secondAttribute="bottom" id="AUH-lc-fF6"/>
                             <constraint firstItem="ayK-Ex-SzK" firstAttribute="leading" secondItem="2eC-FL-kQo" secondAttribute="leading" id="Bea-gk-Q2z"/>
                             <constraint firstItem="biv-Bm-bLY" firstAttribute="top" secondItem="wKE-zn-mzU" secondAttribute="bottom" constant="60" id="IS4-GT-i9O"/>
-                            <constraint firstItem="Hde-k5-qLe" firstAttribute="top" secondItem="Kd3-Q6-LFM" secondAttribute="bottom" constant="80" id="UKo-8s-TeO"/>
+                            <constraint firstItem="Hde-k5-qLe" firstAttribute="top" secondItem="Kd3-Q6-LFM" secondAttribute="bottom" constant="50" id="UKo-8s-TeO"/>
                             <constraint firstAttribute="centerX" secondItem="ayK-Ex-SzK" secondAttribute="centerX" id="XDh-bz-s0L"/>
                             <constraint firstAttribute="centerY" secondItem="ayK-Ex-SzK" secondAttribute="centerY" id="ZZK-cg-6Wj"/>
                             <constraint firstItem="Hde-k5-qLe" firstAttribute="leading" secondItem="2eC-FL-kQo" secondAttribute="leading" id="bFs-tq-GhB"/>
@@ -203,7 +212,7 @@
                             <constraint firstAttribute="trailing" secondItem="Hde-k5-qLe" secondAttribute="trailing" id="lEZ-oM-5SM"/>
                             <constraint firstAttribute="centerX" secondItem="j1p-U4-f5J" secondAttribute="centerX" id="mBn-Yp-uRh"/>
                             <constraint firstItem="kav-Sw-s5A" firstAttribute="top" secondItem="wKE-zn-mzU" secondAttribute="bottom" constant="208" id="o4d-yc-OT7"/>
-                            <constraint firstItem="lER-TS-fAH" firstAttribute="top" secondItem="ayK-Ex-SzK" secondAttribute="top" constant="190" id="poN-YO-Nlk"/>
+                            <constraint firstItem="lER-TS-fAH" firstAttribute="top" secondItem="ayK-Ex-SzK" secondAttribute="top" constant="175" id="poN-YO-Nlk"/>
                             <constraint firstAttribute="trailing" secondItem="kav-Sw-s5A" secondAttribute="trailing" constant="50" id="rfM-LS-dHo"/>
                             <constraint firstItem="j1p-U4-f5J" firstAttribute="top" secondItem="biv-Bm-bLY" secondAttribute="bottom" constant="80" id="wSi-G6-GC0"/>
                             <constraint firstItem="lER-TS-fAH" firstAttribute="leading" secondItem="2eC-FL-kQo" secondAttribute="leading" constant="50" id="z1n-k8-LWk"/>

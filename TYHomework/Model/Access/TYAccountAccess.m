@@ -18,6 +18,9 @@
         NSString *encodeString = [TYPasswordEncoder encode:password];
 
     [accountDao insertAccountWithEmail:email password:encodeString name:name avatar:nil action:^(TYAccount *account) {
+        [TYAccount reloadAccount:account];
+        [[TYShareStorage shareStorage] setupCacheStorageIfNecessary];
+        [[TYShareStorage shareStorage] synchronize];
         return action(account, nil);
     }];
 }
@@ -27,7 +30,9 @@
 
 + (void)updateInfo:(NSString *)name gender:(NSInteger)gender age:(NSInteger)age location:(CLLocation *)location locationDescription:(NSString *)locationDescription introduction:(NSString *)introduction height:(NSInteger)height weight:(NSInteger)weight avatar:(id)avatar action:(RSAccountAction)action {
     TYAccount *account = [TYAccount currentAccount];
-    account.name = name;
+    if (name.length) {
+        account.name = name;
+    }
     if (gender != -1) account.gender = gender;
     if (age != -1) account.age = age;
     if (locationDescription) account.location = locationDescription;
@@ -37,8 +42,9 @@
         account.avatarURL = avatar;
     }
     TYAccountDao *dao = [TYAccountDao sharedDao];
-    [dao updateAccountWithAccountEmail:account.email account:account];
     
+    [dao updateAccountWithAccountEmail:account.email account:account];
+    [[TYShareStorage shareStorage] setupCacheStorageIfNecessary];
     [[TYShareStorage shareStorage] synchronize];
     return action(account, nil);
 }
@@ -49,6 +55,9 @@
     TYAccountDao *accountDao = [TYAccountDao sharedDao];
     [accountDao selectAccountWithEmail:email password:encoderString action:^(TYAccount *account) {
         if (account) {
+            [TYAccount reloadAccount:account];
+            [[TYShareStorage shareStorage] setupCacheStorageIfNecessary];
+            [[TYShareStorage shareStorage] synchronize];
             action(account, nil);
         } else {
             NSError *error = [NSError errorWithDomain:@"loginError" code:1 userInfo:@{NSLocalizedDescriptionKey: @"登录失败，没有这个账号"}];

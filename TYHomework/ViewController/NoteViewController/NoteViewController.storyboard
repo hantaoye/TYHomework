@@ -80,7 +80,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9J-1y-mzc" customClass="TYPlaceholderTextView">
                                 <rect key="frame" x="10" y="194" width="580" height="300"/>
-                                <color key="backgroundColor" red="0.42895196816143122" green="0.75767440025252519" blue="0.40565781126773087" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="NUl-CQ-Zil"/>
                                 </constraints>
@@ -243,6 +243,6 @@
         <image name="recode-sound-icon" width="118" height="118"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cbQ-kR-q1k"/>
+        <segue reference="RHs-uZ-6cr"/>
     </inferredMetricsTieBreakers>
 </document>

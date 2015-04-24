@@ -185,6 +185,7 @@
             [RSProgressHUD showSuccessWithStatus:@"保存成功"];
             [self dismissViewControllerAnimated:YES completion:^{
             }];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         });
     }];
 }

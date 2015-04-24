@@ -128,7 +128,7 @@
 - (void)queryObjectsWithActon:(void(^)(NSArray *objs))action rowMapper:(id<TYRowMapper>)rowMapper SQL:(NSString *)sql, ... {
     va_list ap;
     va_start(ap, sql);
-    [self _queryObjectWithActon:action rowMapper:rowMapper SQL:sql va_list:ap];
+    [self _queryObjectsWithActon:action rowMapper:rowMapper SQL:sql va_list:ap];
     va_end(ap);
 }
 

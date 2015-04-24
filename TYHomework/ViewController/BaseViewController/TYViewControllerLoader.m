@@ -33,16 +33,19 @@
     [self loadRootVC:[mainStoryboard instantiateInitialViewController]];
 }
 
++ (void)loadWelcomeViewController {
+    UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"WelcomeViewController" bundle:nil];
+    [self loadRootVC:[welcomeStoryboard instantiateViewControllerWithIdentifier:@"TYWelcomeViewController"]];
+}
+
 + (void)loadResgiterEntry {
-    UIStoryboard *registerStoryboard = [UIStoryboard storyboardWithName:@"TYRegisterViewController" bundle:nil];
+    UIStoryboard *registerStoryboard = [UIStoryboard storyboardWithName:@"RSRegisterViewController" bundle:nil];
     [self loadRootVC:[registerStoryboard instantiateInitialViewController]];
 }
 
 + (void)layout {
     [self loadResgiterEntry];
 }
-
-
 
 + (UIStoryboard *)welcomeStoryboard {
     static UIStoryboard *stoyrboard = nil;

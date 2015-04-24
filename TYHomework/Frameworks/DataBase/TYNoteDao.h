@@ -16,9 +16,9 @@
 
 - (void)selectNoteWithID:(NSInteger)ID action:(void(^)(TYNote *note))action;
 
-- (void)selectNoteWithTitle:(NSInteger *)title action:(void(^)(TYNote *note))action;
+- (void)selectNoteWithTitle:(NSString *)title action:(void(^)(TYNote *note))action;
 
-- (void)selectNotesWithTitle:(NSInteger *)title action:(void (^)(NSArray *))action;
+- (void)selectNotesWithTitle:(NSString *)title action:(void (^)(NSArray *notes))action;
 
 - (void)insertNoteWithID:(NSInteger)ID title:(NSString *)title desc:(NSString *)desc videoPagth:(NSString *)videoPath imageURL:(NSString *)imageURL drawImageURL:(NSString *)drawImageURL audioURL:(NSString *)audioURL action:(void (^)(TYNote *))action;
 

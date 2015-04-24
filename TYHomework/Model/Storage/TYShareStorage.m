@@ -18,7 +18,7 @@
 static NSString *__accountKey = @"accountKey";
 static NSString *__noteKey = @"noteKey";
 
-static NSString *__path = @"pathKey";
+static NSString *__pathKey = @"pathKey";
 
 @interface TYShareStorage ()
 
@@ -26,21 +26,26 @@ static NSString *__path = @"pathKey";
 
 @property (strong, nonatomic) TYDatabaseConnector *accountDBC;
 @property (strong, nonatomic) TYDatabaseConnector *noteDBC;
+@property (strong, nonatomic) dispatch_queue_t syncQueue;
 
 @end
 
 @implementation TYShareStorage
 
 - (void)synchronize {
+    dispatch_sync(_syncQueue, ^{
     [[NSKeyedArchiver archivedDataWithRootObject:self] writeToFile:_path atomically:YES];
+        return;
+    });
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
+        _syncQueue = dispatch_queue_create("com.RS-inc.sharedStorage.syncQueue", nil);
         _account = [aDecoder decodeObjectForKey:__accountKey];
         [TYAccount reloadAccount:_account];
         _note = [aDecoder decodeObjectForKey:__noteKey];
-        _path = [aDecoder decodeObjectForKey:__path];
+        _path = [aDecoder decodeObjectForKey:__pathKey];
         
         [self resetDatabase];
     }
@@ -48,21 +53,21 @@ static NSString *__path = @"pathKey";
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:_path forKey:__path];
-    [aCoder encodeObject:_account forKey:__accountKey];
-    [aCoder encodeObject:_note forKey:__noteKey];
+    [aCoder encodeObject:self.path forKey:__pathKey];
+    [aCoder encodeObject:self.account forKey:__accountKey];
+    [aCoder encodeObject:self.note forKey:__noteKey];
 }
 
 + (instancetype)shareStorage {
     static TYShareStorage *storage = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
        NSString *filePath = [TYSharePath getShareStoragePath];
         storage = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
         if (!storage) {
             storage = [[TYShareStorage alloc] init];
             storage.path = filePath;
+            storage.syncQueue = dispatch_queue_create("com.RS-inc.sharedStorage.syncQueue", nil);
             [storage resetDatabase];
         }
     });
@@ -81,6 +86,7 @@ static NSString *__path = @"pathKey";
     BOOL same = [[self account] isEqual:account];
     if (account) {
             [self resetDatabase];
+            _account = account;
         } else {
             if (_accountDBC == nil) {
                 [self resetDatabase];

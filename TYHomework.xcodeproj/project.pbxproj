@@ -111,6 +111,8 @@
 		671329C21AD42F3600CFACBB /* TYDrawViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671329C11AD42F3600CFACBB /* TYDrawViewController.storyboard */; };
 		671329C61AD4305000CFACBB /* TYDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 671329C51AD4305000CFACBB /* TYDrawView.m */; };
 		671329C81AD432CC00CFACBB /* TYHomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671329C71AD432CC00CFACBB /* TYHomeViewController.storyboard */; };
+		672549661AE9614E008CA4D3 /* RSLaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672549651AE9614E008CA4D3 /* RSLaunchScreenViewController.m */; };
+		672549681AE96161008CA4D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672549671AE96161008CA4D3 /* LaunchScreen.storyboard */; };
 		672F59B91AD19327002BC84C /* TYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672F59B81AD19327002BC84C /* TYBaseNavigationController.m */; };
 		672F59BD1AD19537002BC84C /* TYAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672F59BC1AD19537002BC84C /* TYAnimationController.m */; };
 		672F59C01AD1966C002BC84C /* TYViewControllerAnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 672F59BF1AD1966C002BC84C /* TYViewControllerAnimationDelegate.m */; };
@@ -526,6 +528,9 @@
 		671329C41AD4305000CFACBB /* TYDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDrawView.h; sourceTree = "<group>"; };
 		671329C51AD4305000CFACBB /* TYDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDrawView.m; sourceTree = "<group>"; };
 		671329C71AD432CC00CFACBB /* TYHomeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TYHomeViewController.storyboard; sourceTree = "<group>"; };
+		672549641AE9614E008CA4D3 /* RSLaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLaunchScreenViewController.h; sourceTree = "<group>"; };
+		672549651AE9614E008CA4D3 /* RSLaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLaunchScreenViewController.m; sourceTree = "<group>"; };
+		672549671AE96161008CA4D3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		672F59B71AD19327002BC84C /* TYBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBaseNavigationController.h; sourceTree = "<group>"; };
 		672F59B81AD19327002BC84C /* TYBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBaseNavigationController.m; sourceTree = "<group>"; };
 		672F59BB1AD19537002BC84C /* TYAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAnimationController.h; sourceTree = "<group>"; };
@@ -1127,6 +1132,16 @@
 			path = DrawView;
 			sourceTree = "<group>";
 		};
+		672549631AE9614E008CA4D3 /* LaunchScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				672549671AE96161008CA4D3 /* LaunchScreen.storyboard */,
+				672549641AE9614E008CA4D3 /* RSLaunchScreenViewController.h */,
+				672549651AE9614E008CA4D3 /* RSLaunchScreenViewController.m */,
+			);
+			path = LaunchScreenViewController;
+			sourceTree = "<group>";
+		};
 		672F59BA1AD19537002BC84C /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1490,6 +1505,7 @@
 		6755DEE01AA4037D000120B9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				672549631AE9614E008CA4D3 /* LaunchScreenViewController */,
 				67374B8C1AE7724100F14286 /* VideoViewController */,
 				67374B831AE74E0A00F14286 /* NoteViewController */,
 				67695A471AB73DCC00FC595B /* DrawViewController */,
@@ -2133,6 +2149,7 @@
 				67374D311AE77D4D00F14286 /* record_icon_hook_highlighted_bg@2x.png in Resources */,
 				67374D1F1AE77D4D00F14286 /* record_deletesure_normal@2x.png in Resources */,
 				67B290691AE5301E00AE643D /* filter_normal.jpg in Resources */,
+				672549681AE96161008CA4D3 /* LaunchScreen.storyboard in Resources */,
 				67B2902F1AE5301D00AE643D /* black1down.png in Resources */,
 				67B290831AE5301E00AE643D /* channel_twilight.png in Resources */,
 				670FF0E41AE864A5009F752F /* makecards_puzzle3_storyboard4_icon.png in Resources */,
@@ -2468,6 +2485,7 @@
 				672F59BD1AD19537002BC84C /* TYAnimationController.m in Sources */,
 				6764CB961AD2DF2E000A090B /* RSProgressHUD.m in Sources */,
 				67FD72371AD0D998007EAE30 /* TYRowMapper.m in Sources */,
+				672549661AE9614E008CA4D3 /* RSLaunchScreenViewController.m in Sources */,
 				67376C801AB7C94400EB7215 /* NSString+TY.m in Sources */,
 				6764CBA21AD2E584000A090B /* TYNameVerify.m in Sources */,
 				67374BC41AE772CB00F14286 /* RSVideoViewController.m in Sources */,

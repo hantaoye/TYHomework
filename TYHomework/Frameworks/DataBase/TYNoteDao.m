@@ -25,7 +25,6 @@ static NSString *RSAccountSQLUpdateAccountWithNickName = @"update table_note set
 static NSString *RSAccountSQLGetAccount = @"select id, name, avatar, nickName, timestamp from table_note where id = ?";
 static NSString *RSAccountSQLMultiGetAccount = @"select id, name, avatar, nickName, timestamp from table_note where id in (%@)";
 
-static NSString *RSNoteSQLAllNote = @"select note from table_note order by id";
 
 static NSString *RSNoteSQLCreateNote = @"create table if not exists table_note(id integer primary key autoincrement, access_token text, userID integer, title text, desc text, videoPath text, imageURL text, drawImageURL text, timestamp text, note blob)";
 
@@ -33,10 +32,11 @@ static NSString *RSNoteSQLAddNoteWithName = @"replace into table_note (title, de
 
 static NSString *RSNoteSQLCheckID = @"select note from table_note where id = ?";
 
-static NSString *RSNoteSQLCheckTitle = @"select id, note from table_note where title = ?";
-
 static NSString *RSNoteSQLMultiGetNote = @"select id, note from table_note where id in (%@)";
-static NSString *RSNoteSQLMultiGetNotesTitle = @"select id, note from table_note where title like ? order by id";
+
+static NSString *RSNoteSQLAllNote = @"select note from table_note order by id asc";
+static NSString *RSNoteSQLCheckTitle = @"select id, note from table_note where title = ?";
+static NSString *RSNoteSQLMultiGetNotesTitle = @"select id, note from table_note where title like %@ order by id asc";
 static NSString *TYNoteSQLDeleteNoteTitle = @"delete from table_note where title = ?";
 static NSString *TYNoteSQLDeleteNoteID = @"delete from table_note where id = ?";
 
@@ -71,16 +71,20 @@ static NSString *TYNoteSQLDeleteNoteID = @"delete from table_note where id = ?";
     } rowMapper:[[TYNoteMapper alloc] init] SQL:RSNoteSQLCheckID, ID];
 }
 
-- (void)selectNoteWithTitle:(NSInteger *)title action:(void(^)(TYNote *note))action {
+- (void)selectNoteWithTitle:(NSString *)title action:(void(^)(TYNote *note))action {
     [self.connector queryObjectWithActon:^(id obj) {
         action(obj);
     } rowMapper:[[TYNoteMapper alloc] init] SQL:RSNoteSQLCheckTitle, title];
 }
 
-- (void)selectNotesWithTitle:(NSInteger *)title action:(void (^)(NSArray *))action {
-    [self.connector queryObjectsWithActon:^(NSArray *objs) {
-        action(objs);
-    } rowMapper:[[TYNoteMapper alloc] init] SQL:RSNoteSQLCheckTitle];
+- (void)selectNotesWithTitle:(NSString *)title action:(void (^)(NSArray *))action {
+    NSString *string = [NSString stringWithFormat:@"'%%%@%%'", title];
+    NSString *str = [NSString stringWithFormat:RSNoteSQLMultiGetNotesTitle, string];
+//    [self.connector queryObjectsWithActon:^(NSArray *objs) {
+//        action(objs);
+//            } rowMapper:[[TYNoteMapper alloc] init] SQL:str];
+   NSArray *array = [self.connector queryObjectsWithRowMapper:[[TYNoteMapper alloc] init] SQL:str];
+    action(array);
 }
 
 - (void)insertNoteWithID:(NSInteger)ID title:(NSString *)title desc:(NSString *)desc videoPagth:(NSString *)videoPath imageURL:(NSString *)imageURL drawImageURL:(NSString *)drawImageURL audioURL:(NSString *)audioURL action:(void (^)(TYNote *))action {
