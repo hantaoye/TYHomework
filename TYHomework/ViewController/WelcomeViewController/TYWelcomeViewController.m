@@ -58,7 +58,7 @@
 #pragma mark -
 #pragma mark scrollviewDelegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    _pageControl.currentPage = (scrollView.contentOffset.x / TYScreenWidth) + 0.5;
+    _pageControl.currentPage = (scrollView.contentOffset.x / TYScreenWidth) - 0.5;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -154,7 +154,43 @@
                     <view key="view" contentMode="scaleToFill" id="bwa-pQ-dzk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="letter-paper38" translatesAutoresizingMaskIntoConstraints="NO" id="CaZ-Kc-BuO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fx8-QJ-Cvb">
+                                <rect key="frame" x="275" y="376" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MJg-Ss-fSo"/>
+                                    <constraint firstAttribute="width" constant="50" id="raz-Fs-K5t"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="qGE-ho-mZE" eventType="touchDown" id="hX5-0n-S41"/>
+                                    <action selector="stopBtn:" destination="qGE-ho-mZE" eventType="touchUpInside" id="snX-Jr-ONu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcn-Lh-qGo">
+                                <rect key="frame" x="251" y="178" width="46" height="30"/>
+                                <state key="normal" title="play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="play:" destination="qGE-ho-mZE" eventType="touchUpInside" id="6SS-oI-Iqh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="CaZ-Kc-BuO" secondAttribute="centerY" id="7Yk-qK-pf1"/>
+                            <constraint firstAttribute="centerX" secondItem="Fx8-QJ-Cvb" secondAttribute="centerX" id="EwP-XV-QSA"/>
+                            <constraint firstItem="Uz3-xM-uKu" firstAttribute="top" secondItem="Fx8-QJ-Cvb" secondAttribute="bottom" constant="174" id="LPh-pQ-Loy"/>
+                            <constraint firstAttribute="centerX" secondItem="CaZ-Kc-BuO" secondAttribute="centerX" id="eLa-Xw-hBe"/>
+                            <constraint firstItem="CaZ-Kc-BuO" firstAttribute="top" secondItem="bwa-pQ-dzk" secondAttribute="top" id="na3-CC-ZHS"/>
+                            <constraint firstItem="CaZ-Kc-BuO" firstAttribute="leading" secondItem="bwa-pQ-dzk" secondAttribute="leading" id="utY-Wq-1In"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R1B-dO-0wB"/>
                 </viewController>
@@ -165,5 +201,6 @@
     </scenes>
     <resources>
         <image name="letter-paper-share-cn" width="640" height="1136"/>
+        <image name="letter-paper38" width="320" height="416"/>
     </resources>
 </document>

@@ -457,7 +457,7 @@
     //Play the New Cropped video
     NSURL *outputURL = session.outputURL;
     AVURLAsset* asset = [AVURLAsset URLAssetWithURL:outputURL options:nil];
-    AVPlayerItem * newPlayerItem = [AVPlayerItem playerItemWithAsset:asset];
+//    AVPlayerItem * newPlayerItem = [AVPlayerItem playerItemWithAsset:asset];
     
 //    self.mPlayer = [AVPlayer playerWithPlayerItem:newPlayerItem];
 //    [mPlayer addObserver:self forKeyPath:@"status" options:0 context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];

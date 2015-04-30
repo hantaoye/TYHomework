@@ -7,6 +7,9 @@
 //
 
 #import "TYAudioViewController.h"
+#import "TYAudioTool.h"
+
+static NSString *__name = @"aaa.caf";
 
 @interface TYAudioViewController ()
 
@@ -22,6 +25,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)pressedBtn:(UIButton *)sender {
+    [TYAudioTool startRecorder:__name];
+}
+
+- (IBAction)stopBtn:(UIButton *)sender {
+    [TYAudioTool stopRecorder];
+}
+
+- (IBAction)play:(UIButton *)sender {
+    [TYAudioTool playRecorder:__name];
 }
 
 /*

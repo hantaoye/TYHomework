@@ -16,7 +16,7 @@
 
 + (void)create:(RSVideo *)video action:(RSVideoAction)action {
     assert([video videoAsset] && "video asset is nil");
-    NSMutableDictionary *kv = [[NSMutableDictionary alloc] init];
+//    NSMutableDictionary *kv = [[NSMutableDictionary alloc] init];
 //    dispatch_block_t code = ^{
 //        if ([video videoData]) {
 //            kv[@"video"] = [video videoData];
