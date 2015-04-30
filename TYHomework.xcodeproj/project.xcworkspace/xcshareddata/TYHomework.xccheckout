@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>71157974-5215-4A15-8987-0F7F58B33D3C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TYHomework</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5D5FC685159553F3175E9A8BE24249F358D43017</key>
+		<string>https://github.com/Han113122/TYHomework.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TYHomework.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5D5FC685159553F3175E9A8BE24249F358D43017</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Han113122/TYHomework.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5D5FC685159553F3175E9A8BE24249F358D43017</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5D5FC685159553F3175E9A8BE24249F358D43017</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TYHomework</string>
+		</dict>
+	</array>
+</dict>
+</plist>
